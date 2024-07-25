@@ -1,0 +1,20 @@
+<div class="points_popup" >
+    <div class="popup_header">
+        <h1 class="titles">Points:</h1>
+        <mat-icon class="close_icon" mat-button [mat-dialog-close]="true">close</mat-icon>
+    </div>
+    <table class="points_table">
+        <thead class="thead_style">
+            <th>month/year</th>
+            <th>Score</th>
+        </thead>
+        <tbody class="tbody_style" *ngIf="scores">
+            <ng-container *ngFor="let s of scores;index as i;">
+                <tr *ngIf="i<8">
+                    <td>{{s.month}}/{{s.year}}</td>
+                    <td>{{s.score}}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

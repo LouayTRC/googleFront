@@ -1,0 +1,22 @@
+<div class="leaderboard_box">
+    <div class="d-flex justify-content-center leader-container">
+        <table class="table leader-table">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Total Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let tmember of members;index as i">
+                    <tr *ngIf="i<8">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{tmember.user.fullname}}</td>
+                        <td>{{tmember.score}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>

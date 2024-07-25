@@ -1,0 +1,33 @@
+.recent_tasks_box{
+    min-height:400px;
+    max-height:auto;
+    width:93% ;
+    margin-left:55px;
+    border-radius:4px;
+    border-top:4px solid #ea4335;
+    background-color:#E8E8E8;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.table_title{
+    text-align: center;
+    color:#287bff;
+}
+.tasks_container{
+    margin: 0 50px 0 50px;
+}
+.tasks_header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+@media screen and (max-width: 1024px){
+    .recent_tasks_box{
+        margin-left:15px;
+    }
+}
+@media screen and (max-width: 320px){
+    .recent_tasks_box{
+        width:300px;
+        padding:0px;
+    }
+}

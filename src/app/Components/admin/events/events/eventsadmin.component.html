@@ -1,0 +1,9 @@
+<div class="pages_content">
+    <div class="button_area">
+        <button class="single_button" (click)="openAddPopup();">Add Event</button>
+    </div>
+    <div class="content_area" *ngIf="events!=undefined">
+        <app-shared-component-label page="events"></app-shared-component-label>
+        <app-shared-component *ngFor="let e of events" (update)="miseAJour($event)" (delete)="suppression($event)" [event]="e" ></app-shared-component>
+    </div>
+</div>

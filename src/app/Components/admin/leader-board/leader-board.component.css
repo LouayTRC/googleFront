@@ -1,0 +1,25 @@
+.leaderboard_box{
+    min-height:400px;
+    max-height:auto;
+    width:260px;
+    background-color:#E8E8E8;
+    border-radius:4px;
+    margin-right:50px;
+    border-top:4px solid #e9b10a;
+
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.title_leaderboard{
+    font-size:35px;
+    padding:15px;
+    color:#185ABC;
+}
+@media screen and (max-width: 1024px){
+    .leaderboard_box{
+        width:265px;
+        margin-right:0px;
+    }
+}
+table,tr,th,td{
+    border:2px solid black;
+}

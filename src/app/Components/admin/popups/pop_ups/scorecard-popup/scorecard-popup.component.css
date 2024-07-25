@@ -1,0 +1,14 @@
+.scorecard_popup{
+    background-color:#E8E8E8;
+    min-width:300px;
+    max-width:auto;
+    height:500px;
+    padding:25px;
+}
+.scorecard_table{
+    padding:25px;
+}
+.scorecard_inputs{
+    width:100px;
+}
+

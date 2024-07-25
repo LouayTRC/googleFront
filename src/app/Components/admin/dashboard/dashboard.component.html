@@ -1,0 +1,75 @@
+<mat-toolbar class="toolbarstyle" >
+    <mat-toolbar-row > 
+        <button (click)="sidenav.toggle();" mat-icon-button>
+            <mat-icon class="menu_button">menu</mat-icon>
+        </button>
+        <div class="title_and_logo">
+            <h1 class="title">Isetch Google Club</h1>
+            <img src="../assets/images/Untitled__2_-removebg-preview.png" alt="" class="logo">
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav class="sidenav">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/home">
+                <div class="sidebar_item">
+                    <mat-icon class="sidebar_icon">home</mat-icon>
+                    Home
+                </div>
+            </a>
+            <a mat-list-item routerLink="/admin/home">
+                <div class="sidebar_item">
+                    <mat-icon class="sidebar_icon">dashboard</mat-icon>
+                    Dashboard
+                </div>
+            </a>
+            <a mat-list-item routerLink="events">
+                <div class="sidebar_item">
+                    <mat-icon class="sidebar_icon">person</mat-icon>
+                    Events
+                </div>
+            </a>
+            <a mat-list-item routerLink="content">
+                <div class="sidebar_item">
+                    <mat-icon class="sidebar_icon">assignment</mat-icon>
+                    Content
+                </div>
+            </a>
+            <a mat-list-item routerLink="tasks">
+                <div class="sidebar_item">
+                    <mat-icon class="sidebar_icon">playlist_add_check</mat-icon>
+                    Tasks
+                </div>
+            </a>
+            <a mat-list-item routerLink="applications">
+                <div class="sidebar_item">
+                    <mat-icon class="sidebar_icon">assignment</mat-icon>
+                    Applications
+                </div>
+            </a>
+            <!-- <a mat-list-item>
+                <div class="sidebar_item" (click)="openScorecardPopup()">
+                    <mat-icon class="sidebar_icon">assessment</mat-icon>
+                    Scorecard
+                </div>
+            </a> -->
+            <a mat-list-item>
+                <div class="sidebar_item" (click)="openPasswordPopup()">
+                    <mat-icon class="sidebar_icon">https</mat-icon>
+                    Password
+                </div>
+            </a>
+            <a mat-list-item  (click)="openSignoutPopup()">
+                <div class="sidebar_item">
+                    <mat-icon class="sidebar_icon">keyboard_backspace</mat-icon>
+                    Sign out
+                </div>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content style="height:90%;width:100%;">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

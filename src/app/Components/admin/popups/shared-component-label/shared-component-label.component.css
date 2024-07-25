@@ -1,0 +1,30 @@
+.shared_component{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:15px;
+    margin:50px 0 0 0 ;
+    max-width:auto;
+    min-width:90vw;
+    height:100px;
+    background-color: #E8E8E8;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.shared_component h3{
+    font-size:20px;
+    padding:10px;
+}
+.component_image{
+    height:100px;
+    width:100px;
+}
+@media screen and (max-width: 426px){
+    .shared_component h3{
+        font-size:15px;
+    }
+}
+@media screen and (max-width: 321px){
+    .shared_component h3{
+        padding:0px;
+    }
+}

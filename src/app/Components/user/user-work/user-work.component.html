@@ -1,0 +1,35 @@
+<section *ngIf="work">
+    <section>
+        <div class="d-flex  justify-content-center " style="margin-top: 150px;">
+            <div class="assi-details justify-content-center d-flex flex-column align-items-center m">
+                <div class="assignment-resp">
+                    <h1>{{work.task.title}}</h1>
+                    <h3>{{work.task.description}}
+                    </h3>
+                    <div style="width:80%;overflow:hidden; " class="m">
+                        <img src="" alt="" class=""
+                            style="height:200px;border-radius:12px ;">
+                    </div>
+                    <div class="d-flex justify-content-around m" style="margin-top: 40px;">
+                        <h6>Deadline : {{work.task.ddl}}</h6>
+                        <h6>{{work.task.score}} Point</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section >
+        <div class="d-flex justify-content-center ">
+            <div class="drag-area">
+                <header>Put your work Url</header>
+                <input id="work" [(ngModel)]="work.url" type="text">
+            </div>
+        </div>
+    </section>
+    <div class="rect-red"></div>
+    <div class="rect-blue"></div>
+    <div class="d-flex justify-content-center">
+        <button (click)="submitWork()" class="read-more">Submit & Claim</button>
+        <a routerLink="../../works" class="read-more">cancel</a>
+    </div>
+</section>

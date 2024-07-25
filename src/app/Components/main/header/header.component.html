@@ -1,0 +1,20 @@
+<mat-toolbar class="home_header">
+    <img src="../assets/images/isetlogo.png" alt="">
+    <a class="header_text" href="javascript:void(0);" (click)="scrollToSection('home')">Home</a>
+    <a class="header_text" href="javascript:void(0);" (click)="scrollToSection('about')">About</a>
+    <a class="header_text" href="javascript:void(0);" (click)="scrollToSection('departments')">Departement</a>
+    <a class="header_text" href="javascript:void(0);" (click)="scrollToSection('news')">News</a>
+    <a class="header_text" href="javascript:void(0);" (click)="scrollToSection('family')">Family</a>
+    
+    <div *ngIf="!user">
+        <a class="header_text" href="javascript:void(0);" (click)="scrollToSection('apply')">Apply</a>
+        <Button class="header_button btn btn-danger login" (click)="openLoginPopup();" >Login</Button>
+    </div>
+
+    <div *ngIf="user">
+        <a routerLink="/admin" class="header_button btn btn-danger login" *ngIf="hasRole('ADMIN')" >Admin</a>
+        <a routerLink="/member" class="header_button btn btn-danger login" *ngIf="hasRole('MEMBER')" >Member</a>
+        <button class="header_button btn btn-dark login" (click)="logout()" >logout</button>
+    </div>
+</mat-toolbar>
+  

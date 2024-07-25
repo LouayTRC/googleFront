@@ -1,0 +1,108 @@
+<div class="applicationpage_container">
+    <header class="application_header">
+        <img src="../../../assets/images/Untitled__2_-removebg-preview.png" alt="">
+        <h4>Isetch Google Club Membership Application</h4>
+    </header>
+    <section class="application_section">
+        <div class="application_container">
+            <h4>Application From</h4>
+            <p>Make sure to answer all the questions and to provide your personal email.</p>
+            <!-- <form [formGroup]="appForm" (ngSubmit)="addApplication()" style="height:100%;">
+                <table style="height:100%;">
+                    <tr class="tr_style">
+                        <td>
+                            <label class="label_style" for="">Fullname</label>
+                        </td>
+                        <td>
+                            <input class="input_style" type="text" placeholder="Type your name" formControlName="fullname" name="fullname">
+                        </td>
+                        <div *ngIf="Fullname?.errors?.['required'] && Fullname?.touched" class="alert alert-danger">
+                            Username est Obligatoire
+                        </div>
+                    </tr>
+                    <tr class="tr_style">
+                        <td>
+                            <label class="label_style" for="">Email</label>
+                        </td>
+                        <td>
+                            <input class="input_style" type="email" placeholder="Type your email" formControlName="mail" name="mail">
+                        </td>
+                        <div *ngIf="Mail?.errors?.['required'] && Mail?.touched" class="alert alert-danger">
+                            Mail est Obligatoire
+                        </div>
+                        <div *ngIf="Mail?.errors?.['email'] && Mail?.touched" class="alert alert-danger">
+                            ce n'est pas un Mail
+                        </div>
+                    </tr>
+                    <tr class="tr_style">
+                        <td>
+                            <label class="label_style" for="">What department do you want to join ?</label>
+                        </td>
+                        <td>
+                            <select  formControlName="depart" name="depart" id="" class="select_style">
+                                <optgroup>
+                                    <option value="Dev">Dev</option>
+                                    <option value="Media">Media</option>
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="tr_style">
+                        <td>
+                            <label class="label_style" for="">what Department are you studying ?</label>
+                        </td>
+                        <td>
+                            <select  formControlName="facDepart" name="facDepart" id="" class="select_style" >
+                                <optgroup >
+                                    <option value="TI">TI</option>
+                                    <option value="SEG">SEG</option>
+                                </optgroup>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="tr_style">
+                        <td>
+                            <label class="label_style" for="">why do you want to join Google Club</label>
+                        </td>
+                        <td>
+                            <textarea class="textarea_style"  formControlName="reason" name="reason" id=""></textarea>
+                        </td>
+                        <div *ngIf="Reason?.errors?.['required'] && Reason?.touched" class="alert alert-danger">
+                            Reason est Obligatoire
+                        </div>
+                    </tr>
+                    <tr class="tr_style">
+                        <td>
+                            <label class="label_style" for="">what are your skills ?</label>
+                        </td>
+                        <td>
+                            <input class="input_style_long"  formControlName="skills" name="skills" type="text" placeholder="">
+                        </td>
+                        <div *ngIf="Skills?.errors?.['required'] && Skills?.touched" class="alert alert-danger">
+                            Skills est Obligatoire
+                        </div>
+                    </tr>
+                    <tr class="tr_style">
+                        <td>
+                            <label class="label_style" for="">have you been part of a club or a community before ?</label>
+                        </td>
+                        <td>
+                            <input class="input_style_long" type="text"  formControlName="clubsExperience" name="clubsExperience" placeholder="">
+                        </td>
+                        <div *ngIf="Exp?.errors?.['required'] && Exp?.touched" class="alert alert-danger">
+                            si vous n'avez pas d'experience ecrivez RIEN
+                        </div>
+                    </tr>
+                </table>
+                <div class="application_buttons_container ">
+                    <input type="submit" class="application_button" value="Submit !">
+                    <button class="application_button">
+                        <a routerLink="" class="home_button_style">
+                            Go Home
+                        </a>
+                    </button>
+                </div>
+            </form> -->
+        </div>
+    </section>
+</div>

@@ -1,0 +1,11 @@
+<div class="pages_content" *ngIf="candidats!=undefined">
+    <div class="button_area">
+        <h1>Applications</h1>
+    </div>
+    <div class="content_area">
+        <app-shared-component-label [app]="candidats" ></app-shared-component-label>
+    </div>
+    <div class="content_area">
+        <app-shared-component *ngFor="let c of candidats" [candidat]="c"></app-shared-component>
+    </div>
+</div>

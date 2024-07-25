@@ -1,0 +1,20 @@
+<div class="content" *ngIf="work!=undefined">
+    <div class="content_img_details" >
+        <img src="../../../../../assets/images/logo.png" alt="" class="content_img">
+        <div class="content_details" >
+            <h4>Task title : {{work.task.title}}</h4>
+            <h5>Member :{{work.member.user.fullname}}</h5>
+            <h5>date Depo :{{work.dateDepo| date:'dd-MMMM-YYYY'}}</h5>
+            <h5>Url work : {{work.url}}</h5>
+        </div>
+    </div>
+    <div class="content_component_points">
+        <form action="" class="content_component_form">
+            <label for="">Note :</label>
+            <input type="number" [(ngModel)]="work.note" name="note" class="content_component_input">
+            <button type="submit" (click)="updateNote()" class="content_form_button">Submit</button>
+        </form>
+    </div>
+</div>
+
+

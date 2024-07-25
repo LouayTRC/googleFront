@@ -1,0 +1,13 @@
+.tasks{
+    display:flex;
+    
+    justify-content: space-between;
+}
+.task_status{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.task_status_icon{
+    margin: 0 0 0 20px;
+}

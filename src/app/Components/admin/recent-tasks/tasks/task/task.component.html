@@ -1,0 +1,8 @@
+<div class="tasks" *ngIf="task">
+    <p >{{task.title}}</p>
+    <p class="task_status">
+        <span>{{task.status}}</span>
+    <mat-icon *ngIf="task.status">check</mat-icon>
+    <mat-icon *ngIf="!task.status">clear</mat-icon>
+    </p>
+</div>

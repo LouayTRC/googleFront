@@ -1,1 +1,353 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #E8E8E8;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* You can add global styles to this file, and also import other style files */
+body {
+    height: 100vh;
+}
+
+.titles {
+    padding: 15px;
+    color: #185ABC;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+}
+
+.single_button {
+    margin: 3px 0 3px 0;
+    padding: 3px;
+    width: 100px;
+    color: white;
+    background-color: #1165e4;
+    border: none;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+.popup_button {
+    margin-top: 15px;
+}
+
+.title,
+.menu_button {
+    color: white;
+}
+
+.sidenav {
+    width: 250px;
+    background-color: #E8E8E8;
+}
+
+.sidebar_item,
+.title_and_logo {
+    display: flex;
+    align-items: center;
+}
+
+.signout_button {
+    margin-top: 50px;
+}
+
+.sidebar_icon {
+    margin-right: 25px;
+}
+
+.center_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.component_buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space;
+
+}
+
+.component_actions {
+    padding-right: 25px
+}
+
+.main_popup {
+    background-color: #E8E8E8;
+    min-width: 400px;
+    max-width: auto;
+    min-height: 300px;
+    max-height: auto;
+    padding: 25px;
+}
+
+.popup_table {
+    height: 30%;
+    width: auto;
+    padding: 20px;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    width: 300px;
+}
+
+.popup_textarea {
+    height: 150px;
+    width: 200px;
+}
+
+.center_button {
+    display: flex;
+    justify-content: center;
+}
+
+.shared_popup_title {
+    font-size: 30px;
+    padding: 10px;
+}
+
+.shared_popup_body {
+    height: 500px;
+    width: 300px;
+    padding: 25px;
+    background-color: #E8E8E8;
+    scroll-behavior: none;
+}
+
+.shared_form_parts,
+.shared_form_parts_wtextarea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.shared_form_parts {
+    height: 60px;
+}
+
+.shared_form_parts_wtextarea {
+    height: 120px;
+}
+
+.shared_form_button {
+    margin-top: 20px;
+}
+
+
+.pages_content {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "button_area"
+        "label_area"
+        "compoenet_area"
+    ;
+    height: 100vh;
+    background-color: #E8E8E8;
+}
+
+.button_area {
+    grid-area: button_area;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 90vw;
+    max-width: auto;
+}
+
+.component_label_area {
+    grid-area: label_area;
+}
+
+.component_label_area h2 {
+    font-size: 20px;
+    padding: 20px;
+    margin-left: 15px;
+
+}
+
+.compoenent_area {
+    grid-area: component_area;
+    padding: 7rem;
+
+    min-width: 95vw;
+    max-width: auto;
+}
+
+.content_area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.close_icon {
+    margin-top: -105px;
+    margin-right: -25px;
+}
+
+.popup_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.popup_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.modal-body form {
+    padding: 20px;
+}
+
+.login_title {
+    padding: 20px;
+    color: white;
+    width: 200px;
+}
+
+.modal-body form input {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 90%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border-radius: 4px;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+
+.modal-body form input:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.715);
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    color: white;
+}
+
+.modal-body div h2 {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    color: white;
+}
+
+.modal-body label {
+    font-size: 0.9rem;
+    margin-top: 10px;
+    margin-bottom: -2px;
+    color: white;
+}
+
+.login:hover {
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+    scale: 1.09;
+}
+
+.modal-body p {
+    color: white;
+    text-align: center;
+}
+
+.modal-body {
+    background-color: rgba(255, 255, 255, 0.665);
+    height: 90vh;
+    width: 400px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    background-image: url(../src/assets/images/login.png);
+    border-top: 4px solid #ea4335;
+    border-bottom: 4px solid #fbbc04;
+    border-left: 4px solid #34a853;
+    border-right: 4px solid #4285f4;
+    background-size: cover;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.59);
+}
+
+.login_form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.center_form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 320px) {
+    .component_label_area h2 {
+        font-size: 15px;
+        padding: 10px;
+        margin-left: 15px;
+
+    }
+}
+
+@media screen and (max-width: 426px) {
+    .single_button {
+        width: 75px;
+    }
+
+    .mat-drawer-content {
+        display: inline;
+    }
+
+    .component_label_area {
+        grid-area: label_area;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        min-width: 90vw;
+        max-width: auto;
+    }
+
+    .component_label_area h2 {
+        font-size: 15px;
+        padding: 10px;
+        margin-left: 15px;
+
+    }
+}
+
+@media screen and (max-width: 1444px) {
+    .mat-drawer-content {
+        display: inline;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .mat-drawer-content {
+        display: inline;
+    }
+}

@@ -1,0 +1,11 @@
+<div class="pages_content">
+    <div class="button_area">
+        <button class="single_button" (click)="openAddPopup();">Add Task</button>
+    </div>
+    <div class="content_area">
+        <app-shared-component-label page="tasks"></app-shared-component-label>
+    </div>
+    <div class="content_area" *ngIf="tasks!=undefined">
+        <app-shared-component *ngFor="let t of tasks" (update)="miseAJour($event)" (delete)="suppression($event)"  [task]="t"></app-shared-component>
+    </div>
+</div>

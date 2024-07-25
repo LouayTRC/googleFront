@@ -1,0 +1,83 @@
+<div class="modal-dialog modal-dialog-centered center_form">
+    <div class="modal-content">
+        <div class="modal-body">
+            <h2 class="login_title">Register <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                    fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                    <path fill-rule="evenodd"
+                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                </svg></h2>
+            <form class="login_form" [formGroup]="registerForm" (ngSubmit)="register()">
+
+                <label for="">fullname</label>
+                <input type="text" formControlName="fullname" name="fullname" placeholder="Type your fullname">
+                <div *ngIf="Fullname?.invalid && Fullname?.touched" class="alert alert-danger">
+                    fullname est Obligatoire
+                </div>
+
+                <label for="">Username</label>
+                <input type="text" formControlName="username" name="username" placeholder="Type your username">
+                <div *ngIf="Username?.invalid && Username?.touched" class="alert alert-danger">
+                    Username est Obligatoire
+                </div>
+
+                <label for="">Password</label>
+                <input type="password" formControlName="password" name="pwd" placeholder="Type your password">
+                <div *ngIf="Pwd?.invalid && Pwd?.touched" class="alert alert-danger">
+                    password est Obligatoire
+                </div>
+                <label for="">Email</label>
+                <input type="email" id="email" formControlName="mail" name="mail" placeholder="Type your email">
+                <div *ngIf="Mail?.invalid && Mail?.touched" class="alert alert-danger">
+                    mail est Obligatoire
+                </div>
+               <div>
+                    <label for="">Select Departements :</label><br>
+                    <!-- <select #depart name="" id="">
+                        <optgroup *ngIf="departs!=undefined">
+                            <option *ngFor="let d of departs" [value]="d.id">{{d.name}}</option>
+                        </optgroup>
+                    </select> -->
+                    <ng-container *ngFor="let d of departs">
+                        <input type="checkbox"  (click)="selectDepart(d)" >{{d.name}}
+                    </ng-container>
+                    
+                </div>
+                
+                <div>
+                    <label for="fileInput">PDP: </label><br>
+                    <input type="file" id="fileInput" (change)="fileChange($event)">
+                    <p *ngIf="file">{{file.size|fileSizePipe}}</p>
+                </div><br>
+                
+
+
+                <label for="">CIN</label>
+                <input type="number" formControlName="cin" name="cin" placeholder="Type your cin">
+                <div *ngIf="CIN?.errors?.['required'] && CIN?.touched" class="alert alert-danger">
+                    cin est Obligatoire
+                </div> 
+                <div *ngIf="(CIN?.errors?.['min'] || CIN?.errors?.['max']) && CIN?.dirty" class="alert alert-danger">
+                    cin doit contenir 8 chiffres
+                </div>
+                <label for="">phone</label><br>
+                <input type="number" formControlName="phone" name="phone" placeholder="Type your phone number">
+                <div *ngIf="Phone?.errors?.['required'] && Phone?.touched" class="alert alert-danger">
+                    phone est Obligatoire
+                </div>
+                <div *ngIf="(Phone?.errors?.['min'] || Phone?.errors?.['max']) && Phone?.dirty" class="alert alert-danger">
+                    phone doit contenir 8 chiffres
+                </div>
+                <label for="">BirthDay</label><br>
+                <input type="date" formControlName="birthday" name="bday">
+                <div *ngIf="bday?.invalid && bday?.touched" class="alert alert-danger">
+                    birthday est Obligatoire
+                </div><br> -->
+                <input type="submit" mat-button [mat-dialog-close]="true" value="Register" class="button-28 Register">
+                <div class="d-flex justify-content-center pt-5 ">
+                    <a routerLink="" [mat-dialog-close]="true" class="btn btn-danger ">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

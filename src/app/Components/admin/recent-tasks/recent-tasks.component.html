@@ -1,0 +1,17 @@
+<div class="recent_tasks_box" *ngIf="departs">
+    <h1 class="titles">Recent Tasks</h1>
+    <ng-container *ngFor="let d of departs">
+        <ng-container *ngIf="d.tasks.length>0">
+            <h2 class="table_title titles">{{d.name}} Departement</h2>
+            <div class="tasks_container">
+                <div class="tasks_header">
+                    <h2>Task</h2>
+                    <h2>Task Status</h2>
+                </div>
+                <ng-container *ngFor="let td of d.tasks.sort();index as i;">
+                    <app-task *ngIf="i<3" [task]="td"></app-task>
+                </ng-container>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

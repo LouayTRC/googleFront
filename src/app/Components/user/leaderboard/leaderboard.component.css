@@ -1,0 +1,115 @@
+.card-user {
+    padding:50px;
+    border-radius: 14px;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    -ms-border-radius: 14px;
+    -o-border-radius: 14px;
+    box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.393);
+    background-color: rgba(255, 255, 255, 0.668);
+    width: 40vh;
+    text-decoration: none;
+}
+.user-of-month {
+    margin-top: 200px;
+    align-self: center;
+    background-color:gray;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+.user-of-month:hover {
+    scale: 1.03;
+    background-color: #161616;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+}
+.user-of-month h2 , .user-of-month h3, .user-of-month h4{
+    color:white;
+    text-align: center;
+}
+.winner {
+    border :4px solid #ea8600;
+
+}
+.second {
+    border:3px solid #ea4335;
+}
+.third {
+    border:3px solid #4285f4;
+}
+
+.leader-container {
+    width: 80%;
+}
+thead tr {
+    background-color: #ea8600;
+    color: white;
+}
+.leader-table {
+    background-color: #ea8600;
+    color: #161616;
+    margin-top: 40px;
+    padding: 50px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+.top_3{
+    display:flex;
+    justify-content: space-around;
+}
+.leader {
+    background-image: linear-gradient(20deg,#fbbc04,#ea8600);
+    padding:20px;
+    border-radius: 16px;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    color: white;
+    width: 40%;
+    box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.776);
+    
+}
+.leader table, .free h2  {
+    color: black;
+}
+thead tr {
+    background-color: #161616;
+    color: white;
+}
+@media screen and (max-width:1024px){
+    .top_3{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+    }
+}
+@media screen and (max-width:426px){
+    .top_3{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+    }
+    .card-user{
+        width:300px;
+    }
+}
+@media screen and (max-width:320px){
+    .card-user{
+        width:200px;
+    }
+}

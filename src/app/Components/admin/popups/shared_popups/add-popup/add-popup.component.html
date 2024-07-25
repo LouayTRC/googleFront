@@ -1,0 +1,93 @@
+<div class="shared_popup_body" *ngIf="data.ComponentName=='events' && departs">
+    <div class="popup_header">
+        <h2 class="shared_popup_title">Add event</h2>
+        <mat-icon class="close_icon" mat-button [mat-dialog-close]="true" style="margin-top:-80px;">close</mat-icon>
+    </div>
+    <form action="" [formGroup]="newEvent" (ngSubmit)="addEvent()">
+        <div class="shared_form_parts">
+            <label for="">Name</label>
+            <input type="text" formControlName="title">
+        </div>
+        <div *ngIf="TitleE?.errors?.['required'] && TitleE?.touched" class="alert alert-danger">
+            indiquez un nom d'event
+        </div>
+        <div class="shared_form_parts">
+            <label for="">place</label>
+            <input type="text" formControlName="place">
+        </div>
+        <div *ngIf="Place?.errors?.['required'] && Place?.touched" class="alert alert-danger">
+           indiquez une place
+        </div>
+        <div class="shared_form_parts">
+            <label for="">Date</label>
+            <input type="date" formControlName="dateEvent">
+        </div>
+        <div *ngIf="DateEvent?.errors?.['required'] && DateEvent?.touched" class="alert alert-danger">
+            indiquez la date
+        </div>
+        <div class="shared_form_parts">
+            <label for="">Departements : </label>
+            <ng-container *ngFor="let d of departs">
+                <label [for]="d.id">{{d.name}} </label>
+                <input type="checkbox" [id]="d.id" [value]="d.id" (click)="addEventDep(d.id)">
+            </ng-container>
+            
+        </div>
+        <div class="shared_form_parts">
+            <label for="">Image</label>
+            <input type="file"  (change)="fileChange($event)" >
+        </div>
+        <div class="shared_form_parts_wtextarea">
+            <label for="">Details</label>
+            <textarea name="" id="" formControlName="description" cols="30" rows="20" style="height:120px;"></textarea>
+        </div>
+        <div *ngIf="Edescription?.errors?.['required'] && Edescription?.touched" class="alert alert-danger">
+            indiquez plus de details
+        </div>
+        <div class="center_button">
+            <button class="single_button shared_form_button">Submit</button>
+        </div>
+    </form>
+</div>
+<div class="shared_popup_body" *ngIf="data.ComponentName=='tasks'">
+    <div class="popup_header">
+        <h2 class="shared_popup_title">Add task</h2>
+        <mat-icon class="close_icon" mat-button [mat-dialog-close]="true" style="margin-top:-80px;">close</mat-icon>
+    </div>
+    <form action="" *ngIf="departs!=undefined" [formGroup]="newTask" (ngSubmit)="addTask()">
+        <div class="shared_form_parts">
+            <label for="">Name</label>
+            <input type="text" formControlName="title">
+        </div>
+        <div *ngIf="Title?.errors?.['required'] && Title?.touched" class="alert alert-danger">
+            Title est Obligatoire
+        </div>
+        <div class="shared_form_parts">
+            <label for="">Date</label>
+            <input type="date" formControlName="ddl">
+        </div>
+        <div *ngIf="ddl?.errors?.['required'] && ddl?.touched" class="alert alert-danger">
+            indiquez le deadline
+        </div>
+        <div class="shared_form_parts" >
+            <label for="">Departement</label>
+            <select id="Dep" name="department" formControlName="department">
+                <option *ngFor="let d of departs" [value]="d.id" >{{d.name}}</option>
+            </select>
+        </div>
+        <div class="shared_form_parts">
+            <label for="">Image</label>
+            <input type="file"  (change)="fileChange($event)">
+        </div>
+        <div class="shared_form_parts_wtextarea">
+            <label for="">Details</label>
+            <textarea name="" id="" formControlName="description" cols="30" rows="20" style="height:120px;"></textarea>
+        </div>
+        <div *ngIf="Tdescription?.errors?.['required'] && Tdescription?.touched" class="alert alert-danger">
+            Indiquez plus de details
+        </div>
+        <div class="center_button">
+            <button class="single_button shared_form_button">Submit</button>
+        </div>
+    </form>
+</div>

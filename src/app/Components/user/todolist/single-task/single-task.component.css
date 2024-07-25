@@ -1,0 +1,49 @@
+.assignment {
+    margin-top: 120px;
+    margin-left: 50px;
+    margin-bottom: -60px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.513);
+    width: 90%;
+    display: flex;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+.assignment:hover {
+    scale: 1.02;
+}
+.assignment div img {
+    margin-left: 5%;
+    width: 100%;
+}
+.todo_info{
+    margin:25px;
+}
+@media screen and (max-width:1024px) {
+    .assignment div img {
+        margin-left: 5%;
+
+    }
+    .assignment {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .todo_img{
+        width:80%;
+    }
+}
+@media screen and (max-width:426px){
+    .assignment {
+        width:300px;
+    }
+}

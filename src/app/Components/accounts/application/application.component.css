@@ -1,0 +1,96 @@
+.application_header{
+    display:flex;
+    align-items: center;
+    height:80px;
+    background-image: linear-gradient(30deg, #b31412, #1a5bbc);
+}
+.application_header h4{
+    color:white;
+}
+.application_header img{
+    width:70px;
+    height:70px;
+    margin:15px;
+}
+.application_section{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.application_container{
+    
+    width:auto;
+    height:auto;
+    padding:25px;
+    border-radius:4px;
+    margin-top:100px;
+    background-color:#E8E8E8;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.tr_style{
+    display:flex;
+    flex-direction: column;
+    padding:15px;
+}
+.textarea_style{
+    width:400px;
+    height:200px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border:none;
+    border-radius:4px;
+}
+.applicationpage_container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:100vh;
+}
+.input_style{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border:none;
+    padding:4px;
+    width:300px;
+    border-radius:4px;
+}
+.input_style_long{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border:none;
+    padding:4px;
+    width:500px;
+    border-radius:4px;
+}
+.select_style{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border:none;
+    border-radius:4px;
+}
+.application_button{
+    background-color:#34a853;
+    padding:4px;
+    margin:0px 10px 0px 10px;
+    border-radius:4px;
+    border:none;
+    color:white;
+}
+.application_buttons_container{
+    display: flex;
+    justify-content: center;
+}
+.home_button_style{
+    text-decoration: none;
+    color:white;
+}
+@media screen and (max-width: 426px){
+    .application_container{
+        width:300px;
+    }
+    .label_style{
+        width:200px;
+    }
+    .input_style, .input_style_long{
+        width:200px;
+    }
+    .textarea_style{
+        width:200px;
+    }
+}

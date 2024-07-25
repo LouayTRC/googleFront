@@ -1,0 +1,33 @@
+.profile_container{
+    background-color:#E8E8E8;
+    height:100vh;
+}
+.offcanvas-header{
+    background-color: #161616;
+    color:white;
+}
+.offcanvas-body{
+    padding:16px 0 16px 0;
+}
+.user-profile{
+    width:80px;
+    height:80px;
+    margin-right:20px;
+}
+.profile_header_style{
+    display:flex;
+    align-items: center;
+}
+.icon-user{
+    width:25px;
+    height:25px;
+    margin:0 20px 0 20px;
+}
+.profile_li:hover{
+    background-image: linear-gradient(20deg,#fbbc04,#ea8600);
+    
+}
+#profile_pic{
+    width: 20px;
+    height: 20px;
+}

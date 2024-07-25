@@ -1,0 +1,21 @@
+<div class="content_page">
+    <!-- <div class="search_content">
+        <h5>Search for Content</h5>
+        <div class="search_part">
+            <label for="Dev">Dev</label>
+            <input type="radio" value="dev" #dev (click)="filtrer(dev)" name="dep_choice" id="">
+        </div>
+        <div class="search_part">
+            <label for="Media">Media</label>
+            <input type="radio" value="media" #media (click)="filtrer(media)" name="dep_choice" id="">
+        </div>
+        <div class="search_part">
+            <label for="Both">Both</label>
+            <input type="radio" checked value="both" #both (click)="filtrer(both)" name="dep_choice" id="">
+        </div>
+    </div> -->
+    <div class="content_container">
+        <h5>Content</h5>
+            <app-single-component *ngFor="let w of works" [work]="w"></app-single-component>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+.container{
+    display: grid;
+    grid-template-columns: 16rem 1fr 24rem;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "info_cards info_cards info_cards"
+    "recent_tasks recent_tasks leaderboard"
+    "admins admins admins"
+    "members members members";
+    min-height: 100vh;
+    width:90%;
+    margin:0px;
+    padding:0px;
+}
+.info_cards{
+    grid-area: info_cards;
+    padding:3rem;
+    background-color:#E8E8E8;
+    width:98vw;
+}
+.recent_tasks{
+    grid-area: recent_tasks;
+    padding:2rem;
+    background-color:#E8E8E8;
+}
+.leaderboard{
+    grid-area: leaderboard;
+    padding:2rem;
+    background-color:#E8E8E8;
+    display:flex;
+    justify-content: center;
+}
+.members{
+    grid-area: members;
+    padding:2rem;
+    background-color:#E8E8E8;
+}
+.admins{
+    grid-area: admins;
+    padding:2rem;
+    background-color:#E8E8E8;
+}
+.addmember_button{
+    margin: 7px 0 7px 0;
+    padding:10px;
+    width:100px;
+    border-radius: 3px;
+    border:none;
+    color:white;
+    background-color:#155ecd;
+}
+.info_cards_container{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.members_container{
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    max-height:auto;
+    background-color:#E8E8E8;
+}
+@media screen and (max-width: 1024px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        grid-template-areas: 
+        "info_cards "
+        "leaderboard "
+        "recent_tasks "
+        "members ";
+    }
+    .info_cards_container{
+        display:flex;
+        flex-direction:column;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 321px){
+    .info_cards{
+
+        margin-left:30px;
+    }
+}

@@ -1,0 +1,78 @@
+<main class="center_section">
+    <section class="home_container">
+        <h1 class="home_title" id="overview">Overview</h1>
+        <div class="home_card_container m">
+            <div  class="points">
+                <button style="border:none;background-color: transparent;" data-bs-toggle="modal"
+                    data-bs-target="#modal-points" *ngIf="user">
+                    <div (click)="openPointspopup();" class="card-user points_card d-flex flex-column justify-content-center points">
+                        <img src="../../../../assets/icons/coins.png" alt="" class="icon-article">
+                        <h2>Points</h2>
+                        <h3>{{this.user.member?.score}}</h3>
+                    </div>
+                </button>
+            </div>
+            <div  class="todolist">
+                <a routerLink="../works" class="card-user todo_card d-flex flex-column justify-content-center to-do-list">
+                    <img src="../../../../assets/icons/todolist.png" alt="" class="icon-article">
+                    <h2>{{this.works.length}}</h2>
+                    <h3>To do list</h3>
+                </a>
+            </div>
+            <div  class="event">
+                <a routerLink="../events" class="card-user event_card d-flex flex-column justify-content-center">
+                    <img src="../../../../assets/icons/event.png" alt="" class="icon-article">
+                    <h2>{{events.length}}</h2>
+                    <h3>Up coming events</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+    <div class="home_container">
+        <section class="leaderboard m">
+            <div class="leader leader_container ">
+                <h2 style="text-align:center;margin-bottom: 30px;">Leaderboard</h2>
+                <table class="table " >
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Total Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let l of leaderBoard;index as i;">
+                            <tr *ngIf="i<5">
+                                <th scope="row"></th>
+                                <td>{{l.user.fullname}}</td>
+                                <td>{{l.score}}</td>
+                            </tr>
+                        </ng-container>
+                        
+                    </tbody>
+                </table>
+                <a routerLink="../leaderboard" class="btn btn-dark">See more</a>
+            </div>
+            <div class="free free_center ">
+                <h2>Claim free content !</h2>
+                <div class="free_articles m">
+                    <article id="free-1" class="free-article">
+                        <h3>Harvard CS50 Web</h3>
+                        <a href="https://pll.harvard.edu/course/cs50s-introduction-game-development?delta=0"
+                            target="_blank">Claim</a>
+                    </article>
+                    <article id="free-2" class="free-article">
+                        <h3>Harvard CS50 Game Dev</h3>
+                        <a href="https://pll.harvard.edu/course/cs50s-introduction-game-development?delta=0"
+                            target="_blank">Claim</a>
+                    </article>
+                    <article id="free-3" class="free-article">
+                        <h3>Harvard CS50 Python</h3>
+                        <a href="https://pll.harvard.edu/course/cs50s-introduction-game-development?delta=0"
+                            target="_blank">Claim</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>

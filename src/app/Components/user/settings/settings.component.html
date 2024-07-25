@@ -1,0 +1,36 @@
+
+<section class="settings_container" *ngIf="currentUser!=undefined">
+    <div class="settings">
+        <div  class="settings_member">
+            <img [src]="currentUser.pdp" alt="img" class="user-profile">
+            <h2>{{currentUser.fullname}}</h2>
+            <h3>{{currentUser.role}}</h3>
+            <p>Points : {{currentUser.score}}</p>
+        </div>
+        <div  class="form_container">
+            <form class="settings_form" [formGroup]="settingsForm" (ngSubmit)="editProfile()" method="post">
+                <div class="form_part">
+                    <div class="input_and_label">
+                        <label for="">Name</label>
+                        <input type="text" formControlName="fullname" placeholder="Change your name">
+                    </div>
+                    <div class="input_and_label">
+                        <label for="">username</label>
+                        <input type="text" formControlName="username" placeholder="Change your forname">
+                    </div>
+                </div>
+                <div class="form_part">
+                    <div class="input_and_label">
+                        <label for="">Email</label>
+                        <input type="email" formControlName="mail" placeholder="Change your Email">
+                    </div>
+                    <div class="input_and_label">
+                        <label for="">Password</label>
+                        <input type="text" formControlName="password" placeholder="Change your password">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger">Save Changes</button>
+            </form>
+        </div>
+    </div>
+</section>

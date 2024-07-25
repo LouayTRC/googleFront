@@ -1,0 +1,32 @@
+.footer-user {
+    background-color: black;
+    background-image: none;
+}
+.icon {
+    width:40px;
+    height:40px;
+    padding: 2px;
+    display:inline-block;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+.report_footer{    
+    text-align:center;
+    padding:60px;
+    font-size:25px;
+}
+.report_footer a{
+    text-decoration:none;
+    color:white;
+}
+.user_footer_icons{
+    display:flex;
+    justify-content: space-around;
+    padding-top:40px;
+}
+.aa{
+    margin-top: -80px;
+}

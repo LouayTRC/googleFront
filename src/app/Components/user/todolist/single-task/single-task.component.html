@@ -1,0 +1,19 @@
+<h1>aaa</h1>
+<h1>aaa</h1>
+<h1>aaa</h1>
+<h1>aaa</h1>
+<h1>aaa</h1>
+<h1>aaa</h1>
+<section class="assignment" >
+    <img src="" alt="" class="todo_img" style="height:200px;border-radius:12px ;">
+    <div class="todo_info">
+        <h1 >{{work.task.title}}</h1>
+        <h3>{{work.task.department.name}}</h3>
+        <div class="d-flex justify-content-around m" style="margin-top: 40px;">
+            <h6 >Deadline : {{work.task.ddl}}</h6>
+        </div>
+        <div class="d-flex justify-content-center m " style="margin-top: 20px;">
+            <a routerLink="../work/{{work.id}}" class="btn btn-success">More Details</a>
+        </div>
+    </div>
+</section>

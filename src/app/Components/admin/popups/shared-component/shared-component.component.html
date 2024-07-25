@@ -1,0 +1,31 @@
+<div class="shared_component" *ngIf="event!=undefined">
+    <h3>{{event.title}}</h3>
+    <h3>{{event.dateEvent|date:'dd-MM-YYYY'}}</h3>
+    <h3>{{event.place}}</h3>
+    <img [src]="event.pic" alt=""  class="component_image">
+    <div class="component_buttons">
+        <button class="single_button" (click)="openDetailsPopup(event.id,'events')">Details</button>
+        <button class="single_button" (click)="openModifyPopup(event.id,'events');">Modify</button>
+        <button class="single_button" (click)="openDeletePopup(event.id,'events');">Delete</button>
+    </div>
+</div>
+<div class="row" *ngIf="task!=undefined">
+    <h3 class="col text-center ">{{task.title}}</h3>
+    <h3 class="col">{{task.ddl|date:'dd-MM-YYYY'}}</h3>
+    <h3 class="col">{{task.department.name}}</h3>
+    <img  [src]="task.pic" alt=""  class="component_image col">
+    <div class="col-3">
+        <button class="single_button" (click)="openDetailsPopup(task.id,'tasks')">Details</button>
+        <button class="single_button" (click)="openModifyPopup(task.id,'tasks');">Modify</button>
+        <button class="single_button" (click)="openDeletePopup(task.id,'tasks');">Delete</button>
+    </div>
+</div>
+<!-- <div class="shared_component" *ngIf="candidat!=undefined">
+    <h3>{{candidat.fullname}}</h3>
+    <h3>{{candidat.mail}}</h3>
+    <h3>{{candidat.facDepart}}</h3>
+    <h3>{{candidat.depart}}</h3>
+    <div class="component_buttons">
+        <button class="single_button" (click)="openDetailsPopup(candidat.id,'candidat')">Details</button>
+    </div>
+</div> -->
