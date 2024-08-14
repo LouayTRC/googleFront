@@ -1,9 +1,9 @@
 import { HttpHeaders } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { Member } from 'src/app/models/member';
-import { MemberService } from 'src/app/services/member.service';
+import { MonthScore } from 'src/app/models/month-score';
 import { MonthScoreService } from 'src/app/services/month-score.service';
 
 @Component({
@@ -12,13 +12,11 @@ import { MonthScoreService } from 'src/app/services/month-score.service';
   styleUrls: ['./scorecard-popup.component.css']
 })
 export class ScorecardPopupComponent {
-  members!:Member[]
+
   headers!:HttpHeaders
-  scoreCard!: FormGroup
-  year!:number
-  months:any=["janvier","fevrier","mars","avril","mai","juin","juillet","aout","septembre","octobre","novembre","decembre"]
-  month!:string
-  constructor(private mService: MemberService, private formBuilder: FormBuilder, private mSService: MonthScoreService,private dialogRef: MatDialog) { }
+  scoreCard!: MonthScore
+  
+  constructor(private mSService: MonthScoreService,@Inject(MAT_DIALOG_DATA) public data:any) { }
   ngOnInit() {
     const token=sessionStorage.getItem('token')
     this.headers=new HttpHeaders({
@@ -26,29 +24,19 @@ export class ScorecardPopupComponent {
       'Authorization': `Bearer ${token}`
     });
 
-    this.year=new Date().getFullYear();
-    this.month=this.months[new Date().getMonth()]
-    console.log("month",this.month);
-    console.log("year",this.year);
-    
-    this.mService.getAllMembers().subscribe((res) => {
-      this.members = res;
-      console.log("members",this.members);
+    console.log("data",this.data);
+
+    this.mSService.getMonthScoreById(this.data.id,this.headers).subscribe((res)=>{
+      this.scoreCard=res
+      console.log("res",res);
+      
     })
-    this.scoreCard = this.formBuilder.nonNullable.group({
-      media: [""],
-      discipline: [""],
-      contribution: [""],
-      departPoints: [""],
-    });
+    
   }
-  addMonthScore(idmember:string){
-    this.scoreCard.value.month=this.month;
-    this.scoreCard.value.year=this.year;
-    this.scoreCard.value.moyen=(this.scoreCard.value.discipline+this.scoreCard.value.media+this.scoreCard.value.contribution+this.scoreCard.value.departPoints)/4;
-    this.mSService.addMonthS(parseInt(idmember),this.scoreCard.value).subscribe((res)=>{
-      console.log("added month score",res);
-      this.dialogRef.closeAll()
+  
+  updateMs(ms:MonthScore){
+    this.mSService.updateMonthScore(ms.score_id,ms,this.headers).subscribe((res)=>{
+      
     })
   }
 }

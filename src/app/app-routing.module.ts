@@ -9,11 +9,11 @@ import { EventsadminComponent } from './Components/admin/events/events/eventsadm
 import { UserComponent } from './Components/user/user/user.component';
 import { UserHomeComponent } from './Components/user/user-home/user-home.component';
 import { TodolistComponent } from './Components/user/todolist/todolist.component';
-import { TaskComponent } from './Components/admin/recent-tasks/tasks/task/task.component';
 import { UserWorkComponent } from './Components/user/user-work/user-work.component';
 import { EventsComponent } from './Components/user/events/events.component';
 import { memberGuard } from './guards/member.guard';
 import { adminGuard } from './guards/admin.guard';
+import { ScorecardsComponent } from './Components/admin/scorecards/scorecards.component';
 
 const routes: Routes = [
   { path: 'home',title:"iset.ch google club", component:  MainComponent},
@@ -33,6 +33,7 @@ const routes: Routes = [
     {path:'tasks',title:'tasks',component:AlltasksComponent}, 
     {path:'content',title:'works',component:ContentComponent}, 
     {path:'events',title:'events',component:EventsadminComponent}, 
+    {path:'scorecards',title:'scoreCards',component:ScorecardsComponent}, 
     {path:'',redirectTo:'home',pathMatch:'full'},
   ],canActivate:[adminGuard]},
   

@@ -6,5 +6,5 @@ import { Work } from "./work";
 
 
 export class User {
-    constructor(public id:number,public fullname:String,public username:String,public mail:String,public password:String,public pdp:String,public roles:Role[],public member?:Member,public admin?:Admin){}
+    constructor(public id:number,public fullname:String,public username:String,public mail:String,public password:String,public pdp:String,public roles:Role[],public enabled:boolean,public member?:Member,public admin?:Admin){}
 }

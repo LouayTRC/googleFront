@@ -54,6 +54,10 @@ import { EventsComponent } from './Components/user/events/events.component';
 import { SignoutPopupComponent } from './Components/admin/popups/pop_ups/signout-popup/signout-popup.component';
 import { PresenceComponent } from './Components/admin/popups/pop_ups/presence/presence.component';
 import { FileSizePipePipe } from './pipes/file-size-pipe.pipe';
+import { PasswordPopupComponent } from './Components/admin/popups/pop_ups/password-popup/password-popup.component';
+import { AddAdminComponent } from './Components/admin/add-admin/add-admin.component';
+import { ScorecardsComponent } from './Components/admin/scorecards/scorecards.component';
+import { ScorecardPopupComponent } from './Components/admin/popups/pop_ups/scorecard-popup/scorecard-popup.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +103,13 @@ import { FileSizePipePipe } from './pipes/file-size-pipe.pipe';
     EventsComponent,
     SignoutPopupComponent,
     PresenceComponent,
-    FileSizePipePipe
+    FileSizePipePipe,
+    SharedComponentLabelComponent,
+    SharedComponentComponent,
+    PasswordPopupComponent,
+    AddAdminComponent,
+    ScorecardsComponent,
+    ScorecardPopupComponent
   ],
   imports: [
     BrowserModule,

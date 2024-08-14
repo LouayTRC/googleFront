@@ -27,7 +27,7 @@ export class MemberCardComponent {
   //     this.suppression.emit(this.member);
   //   })
   }
-  toAdmin(form:Member){
+  activateUser(form:Member){
   //   this.newAdmin=new Admin(form.id,form.fullname,form.username,form.password,'ADMIN',form.pdp);
   //   console.log("add",this.newAdmin);
   //   this.aService.addAdmin(this.newAdmin).subscribe((res)=>{

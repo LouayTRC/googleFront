@@ -1,14 +1,16 @@
 <div class="container">
     <table class="table">
-        <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+        <tr class="row">
+            <th class="col border">Member name</th>
+            <th class="col">Present</th>
+            <th class="col border">updated By</th>
+            <th class="col border">updated At</th>
         </tr>
-        <td >
-
-        </td>
+        <tr *ngFor="let t of membersEvent">
+            <td class="col-3">{{t.member.user.fullname}}</td>
+            <td class="col-3"><input type="radio" [checked]="t.present" (click)="updatePresence(t)"></td>
+            <td class="col" >{{t.updatedBy?.user?.fullname}}</td>
+            <td class="col" >{{t.updatedAt | date:'dd/MM/YYYY H:mm:ss'}}</td>
+        </tr>
     </table>
 </div>

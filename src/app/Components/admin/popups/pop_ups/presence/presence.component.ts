@@ -24,8 +24,17 @@ export class PresenceComponent {
     console.log("dd",this.data);
     this.eService.getPresence(this.data.id,this.headers).subscribe((res)=>{
       console.log("members event :",res);
-      
+      this.membersEvent=res
     })
 
+  }
+
+  updatePresence(t:MemberEvent){
+    this.eService.updatePresence(t.id,!t.present,this.headers).subscribe((res)=>{
+      console.log("ip",res);
+      t.present=!t.present
+      t.updatedAt=res.updatedAt
+      t.updatedBy=res.updatedBy
+    })
   }
 }

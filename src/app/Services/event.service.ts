@@ -33,12 +33,8 @@ export class EventService {
     return this.http.delete<any>(this.baseUrl+"/"+id,{ headers: headers })
   }
 
-  memberIsPresent(id:number,headers?: HttpHeaders):Observable<MemberEvent>{
-    return this.http.put<MemberEvent>(this.baseUrl+'/present/'+id,true,{ headers: headers });
-  }
-
-  memberIsAbsent(id:number,headers?: HttpHeaders):Observable<MemberEvent>{
-    return this.http.put<MemberEvent>(this.baseUrl+'/absent/'+id,true,{ headers: headers });
+  updatePresence(id:number,presence:boolean,headers?: HttpHeaders):Observable<MemberEvent>{
+    return this.http.put<MemberEvent>(this.baseUrl+'/update/'+id,presence,{ headers: headers });
   }
 
   getPresence(id:number,headers?: HttpHeaders):Observable<MemberEvent[]>{

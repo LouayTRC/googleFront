@@ -7,6 +7,7 @@
     </div>
     <div class="admins" >
         <h2 style="text-align: center;">Admins</h2>
+        <button class="btn btn-primary " (click)="openAddAdmin()">Add admin</button>
         <div class="members_container">
             <app-member-card *ngFor="let a of admins" [admin]="a" ></app-member-card>
         </div>

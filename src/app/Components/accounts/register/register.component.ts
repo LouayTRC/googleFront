@@ -40,7 +40,7 @@ export class RegisterComponent {
       mail: ["", Validators.required],
       cin: ["", [Validators.required,Validators.min(11111111),Validators.max(99999999)]],
       phone: ["", [Validators.required,Validators.min(11111111),Validators.max(99999999)]],
-      birthday: ["", Validators.required],
+      birthday: ["", Validators.required]
     })
     
   }
@@ -73,7 +73,10 @@ export class RegisterComponent {
   //       const uploadUser = data;
   //       uploadUser.ref.getDownloadURL().then(data2 => {
   //         this.registerForm.value.pdp = data2;
-          this.registerForm.value.pdp=this.file
+          // this.registerForm.value.pdp=this.file
+          this.registerForm.value.departments=this.selectedDeparts
+          console.log("register form",this.registerForm.value);
+          
           this.authService.register(this.registerForm.value).subscribe((res) => {
             console.log("added member", res);
           })

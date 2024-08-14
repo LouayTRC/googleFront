@@ -1,28 +1,18 @@
-<div class="scorecard_popup"  *ngIf="members!=undefined">
+<div class="scorecard_popup"  *ngIf="scoreCard!=undefined">
     <div class="popup_header">
         <h1 class="titles">Scorecard:</h1>
         <mat-icon class="close_icon" mat-button [mat-dialog-close]="true">close</mat-icon>
     </div>
-    <form [formGroup]="scoreCard" (ngSubmit)="addMonthScore(member.value)" action="">
+    <form   action="">
+        <h2>{{scoreCard.member.user.fullname}}</h2>
+        <h2>{{scoreCard.month}}/{{scoreCard.year}}</h2>
         <table class="scorecard_table">
             <tr>
                 <td>
-                    <label class="label_style" for="">Name</label>
+                    <label for="">Departments Points</label>
                 </td>
                 <td>
-                    <select id="" #member style="width:100px;">
-                        <optgroup>
-                            <option *ngFor="let m of members" [value]="m.id" >{{m.fullname}}</option>
-                        </optgroup>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="">Media coverage</label>
-                </td>
-                <td>
-                    <input class="scorecard_inputs" formControlName="media" type="number" min="0" max="20">
+                    <input class="scorecard_inputs" name="depart" [value]="scoreCard.departsPoints" disabled type="number" min="0" max="20">
                 </td>
             </tr>
             <tr>
@@ -30,7 +20,7 @@
                     <label for="">Disipline</label>
                 </td>
                 <td>
-                    <input class="scorecard_inputs" formControlName="discipline" type="number" min="0" max="20">
+                    <input class="scorecard_inputs" name="discipline" [(ngModel)]="scoreCard.discipline" type="number" min="0" max="20">
                 </td>
             </tr>
             <tr>
@@ -38,20 +28,12 @@
                     <label for="">Contribution</label>
                 </td>
                 <td>
-                    <input class="scorecard_inputs" formControlName="contribution" type="number" min="0" max="20">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label for="">Departement Points</label>
-                </td>
-                <td>
-                    <input class="scorecard_inputs" formControlName="departPoints" type="number" min="0" max="20">
+                    <input class="scorecard_inputs" name="contribution" [(ngModel)]="scoreCard.contribution" type="number" min="0" max="20">
                 </td>
             </tr>
         </table>
         <div class="center_button">
-            <button type="submit" class="single_button popup_button">Submit</button>
+            <button type="submit" class="single_button popup_button" (click)="updateMs(scoreCard)">Submit</button>
         </div>
     </form>
 </div>

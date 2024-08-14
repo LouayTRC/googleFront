@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Application } from 'src/app/models/application';
-import { ApplicationService } from 'src/app/services/application.service';
+import { ApplicationService } from 'src/app/Services/application.service';
 
 @Component({
   selector: 'app-applications-admin',
@@ -11,7 +11,7 @@ import { ApplicationService } from 'src/app/services/application.service';
 export class ApplicationsAdminComponent {
   candidats!:Application[]
   headers!:HttpHeaders
-  constructor(private cService:ApplicationService){}
+  constructor(private aService:ApplicationService){}
   ngOnInit(){
     
     const token=sessionStorage.getItem('token')
@@ -20,7 +20,7 @@ export class ApplicationsAdminComponent {
       'Authorization': `Bearer ${token}`
     });
 
-    this.cService.getAllApplications(this.headers).subscribe((res=>{
+    this.aService.getApplications(this.headers).subscribe((res=>{
       this.candidats=res;
       console.log("candidats",this.candidats);
       

@@ -6,6 +6,7 @@ import { DetailsPopupComponent } from '../shared_popups/details-popup/details-po
 import { Input } from '@angular/core';
 import { Task } from 'src/app/models/Task';
 import { Event } from 'src/app/models/event';
+import { Application } from 'src/app/models/application';
 // import { Application } from 'src/app/models/application';
 
 
@@ -17,7 +18,7 @@ import { Event } from 'src/app/models/event';
 export class SharedComponentComponent {
   @Input() event!: Event;
   @Input() task!:Task;
-  // @Input() candidat!:Application;
+  @Input() candidat!:Application;
   @Output() delete=new EventEmitter()
   @Output() update=new EventEmitter()
   constructor(private dialogRef: MatDialog){

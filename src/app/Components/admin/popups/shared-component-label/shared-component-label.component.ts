@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Application } from 'src/app/models/application';
 // import { Application } from 'src/app/models/application';
 
 @Component({
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./shared-component-label.component.css']
 })
 export class SharedComponentLabelComponent {
-  // @Input() app!:Application[]
+  @Input() app!:Application[]
   @Input() page!:String
 
 }

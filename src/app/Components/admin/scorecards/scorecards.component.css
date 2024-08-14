@@ -1,0 +1,26 @@
+.member_card{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:200px;
+    height:300px;
+    margin:25px;
+    border-radius:4px;
+    background-color:#E8E8E8;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.member_image{
+    width:200px;
+    height:200px;
+}
+.member_info{
+    padding:25px;
+    display: flex;
+}
+.member_info h3{
+    font-size:20px;
+}
+button{
+    border: 0;
+    margin-right: 0px;
+}

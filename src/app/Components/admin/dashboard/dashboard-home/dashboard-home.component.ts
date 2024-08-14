@@ -5,6 +5,7 @@ import { Admin } from 'src/app/models/admin';
 import { UserHomeComponent } from 'src/app/Components/user/user-home/user-home.component';
 import { UserService } from 'src/app/Services/user.service';
 import { HttpHeaders } from '@angular/common/http';
+import { AddAdminComponent } from '../../add-admin/add-admin.component';
 
 @Component({
   selector: 'app-dashboard-home',
@@ -17,7 +18,7 @@ export class DashboardHomeComponent {
   headers!:HttpHeaders
   members!:Member[]
   // constructor(private dialogRef: MatDialog,private dService:DepartService,private aService:AdminService){}
-  constructor(private uService:UserService){}
+  constructor(private uService:UserService,private dialogRef:MatDialog){}
   ngOnInit(){
   //   this.dService.getAllDeparts().subscribe((res)=>{
   //     this.departs=res;
@@ -52,5 +53,9 @@ export class DashboardHomeComponent {
   //   this.admins.push(a)
   //   console.log("admins 2",this.admins);
     
+  }
+
+  openAddAdmin() {
+    this.dialogRef.open(AddAdminComponent).afterClosed().subscribe(item => this.admins.push(item))
   }
 }

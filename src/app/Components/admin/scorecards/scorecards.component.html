@@ -1,0 +1,16 @@
+<div class="container" *ngIf="scoreCards">
+    <div class="member_card" *ngFor="let s of scoreCards">
+
+        <img  alt="" class="member_image">
+        <div class="member_info">
+            <div>
+                <h3>{{s.member.user.fullname}}</h3>
+                <h3>{{s.month}}/{{s.year}} : {{ s.score | number:'1.0-2' }}</h3>
+            </div>
+            <div>
+                <button (click)="openScoreCardPopup(s.score_id)">Details</button>
+            </div>
+        </div>
+    
+    </div>
+</div>
