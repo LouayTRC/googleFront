@@ -1,6 +1,6 @@
 <div class="shared_component" *ngIf="event!=undefined">
     <h3>{{event.title}}</h3>
-    <h3>{{event.dateEvent|date:'dd-MM-YYYY'}}</h3>
+    <h3>{{event.dateEvent|date:'dd-MM-YYYY H:mm:ss'}}</h3>
     <h3>{{event.place}}</h3>
     <img [src]="event.pic" alt=""  class="component_image">
     <div class="component_buttons">

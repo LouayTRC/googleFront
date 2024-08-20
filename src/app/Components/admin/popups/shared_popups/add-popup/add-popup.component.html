@@ -20,7 +20,7 @@
         </div>
         <div class="shared_form_parts">
             <label for="">Date</label>
-            <input type="date" formControlName="dateEvent">
+            <input type="datetime-local" formControlName="dateEvent">
         </div>
         <div *ngIf="DateEvent?.errors?.['required'] && DateEvent?.touched" class="alert alert-danger">
             indiquez la date
