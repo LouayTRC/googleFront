@@ -1,24 +1,14 @@
-<div class="member_card" *ngIf="member">
+<div class="member_card" *ngIf="user">
 
-    <img [src]="member.user.pdp" alt="" class="member_image">
+    <img [src]="user.pdp" alt="" class="member_image">
     <div class="member_info">
         <div>
-            <h3 [ngStyle]="{'color': member.user.enabled ? 'green' : 'red'}">{{member.user.fullname}}</h3>
-            <!-- <h3>{{depart}}</h3> -->
+            <h3 [ngStyle]="{'color': user.enabled ? 'green' : 'red'}">{{user.fullname}}</h3>
+            <h3>{{getRoles()}}</h3>
         </div>
         <div>
-            <button (click)="deleteMember(member.member_id)"><mat-icon>delete</mat-icon></button>
-            <button (click)="activateUser(member)"><mat-icon>https</mat-icon></button>
-        </div>
-    </div>
-
-</div>
-<div class="member_card" *ngIf="admin">
-
-    <img [src]="admin.user.pdp" alt="" class="member_image">
-    <div class="member_info">
-        <div>
-            <h3 [ngStyle]="{'color': admin.user.enabled ? 'green' : 'red'}">{{admin.user.fullname}}</h3>
+            <!-- <button (click)="delete(user.member.member_id)"><mat-icon>delete</mat-icon></button> -->
+            <button (click)="activateUser(user)"><mat-icon>https</mat-icon></button>
         </div>
     </div>
 

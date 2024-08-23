@@ -6,16 +6,10 @@
         <app-leader-board></app-leader-board>
     </div>
     <div class="admins" >
-        <h2 style="text-align: center;">Admins</h2>
+        <h2 style="text-align: center;">Users</h2>
         <button class="btn btn-primary " (click)="openAddAdmin()">Add admin</button>
         <div class="members_container">
-            <app-member-card *ngFor="let a of admins" [admin]="a" ></app-member-card>
-        </div>
-    </div>
-    <div class="members" >
-        <h2 style="text-align: center;">Members</h2>
-        <div class="members_container">
-            <app-member-card *ngFor="let m of members" (ajoutAdmin)="update($event)" (suppression)="miseajour($event)" [member]="m" ></app-member-card>
+            <app-member-card *ngFor="let u of users" [user]="u" ></app-member-card>
         </div>
     </div>
 </div>

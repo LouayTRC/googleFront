@@ -6,6 +6,7 @@ import { UserHomeComponent } from 'src/app/Components/user/user-home/user-home.c
 import { UserService } from 'src/app/Services/user.service';
 import { HttpHeaders } from '@angular/common/http';
 import { AddAdminComponent } from '../../add-admin/add-admin.component';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-dashboard-home',
@@ -14,9 +15,8 @@ import { AddAdminComponent } from '../../add-admin/add-admin.component';
 })
 export class DashboardHomeComponent {
   // departs!:Departement[]
-  admins!:Admin[]
+  users!:User[]
   headers!:HttpHeaders
-  members!:Member[]
   // constructor(private dialogRef: MatDialog,private dService:DepartService,private aService:AdminService){}
   constructor(private uService:UserService,private dialogRef:MatDialog){}
   ngOnInit(){
@@ -29,16 +29,12 @@ export class DashboardHomeComponent {
       'Authorization': `Bearer ${token}`
     });
 
-    this.uService.getAllAdmins(this.headers).subscribe((res)=>{
-      this.admins=res
-      console.log("admins",this.admins);
+    this.uService.getAllUsers(this.headers).subscribe((res)=>{
+      this.users=res
+      console.log("admins",this.users);
       
     })
 
-    this.uService.getAllMembers(this.headers).subscribe((res)=>{
-      this.members=res
-      console.log("members",this.members);
-    })
   }
   miseajour(m:any){
   //   for (let i = 0; i < this.departs.length; i++) {
@@ -56,6 +52,6 @@ export class DashboardHomeComponent {
   }
 
   openAddAdmin() {
-    this.dialogRef.open(AddAdminComponent).afterClosed().subscribe(item => this.admins.push(item))
+    this.dialogRef.open(AddAdminComponent)
   }
 }

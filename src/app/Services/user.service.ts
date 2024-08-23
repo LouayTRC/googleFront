@@ -29,8 +29,8 @@ export class UserService {
     return this.http.get<Admin[]>(this.baseUrl+"/admin",{ headers: headers })
   }
 
-  activateUser(user:User,headers?: HttpHeaders):Observable<User>{
-    return this.http.put<User>(this.baseUrl+"/activate/"+user.id,{headers:headers})
+  updateStatusAccount(id:number,status:boolean,headers?: HttpHeaders):Observable<any>{
+    return this.http.put<any>(this.baseUrl+"/status/"+id,status,{headers:headers})
   }
 
 }
