@@ -7,7 +7,7 @@
                     <h3>{{work.task.description}}
                     </h3>
                     <div style="width:80%;overflow:hidden; " class="m">
-                        <img src="" alt="" class=""
+                        <img [src]="work.task.pic" alt="" class=""
                             style="height:200px;border-radius:12px ;">
                     </div>
                     <div class="d-flex justify-content-around m" style="margin-top: 40px;">
@@ -29,7 +29,7 @@
     <div class="rect-red"></div>
     <div class="rect-blue"></div>
     <div class="d-flex justify-content-center">
-        <button (click)="submitWork()" class="read-more">Submit & Claim</button>
+        <button (click)="submitWork()" [disabled]="!work.status" class="read-more">Submit & Claim</button>
         <a routerLink="../../works" class="read-more">cancel</a>
     </div>
 </section>

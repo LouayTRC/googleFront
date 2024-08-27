@@ -1,12 +1,12 @@
 <div class="content" *ngIf="work!=undefined">
     <div class="content_img_details" >
-        <img src="../../../../../assets/images/logo.png" alt="" class="content_img">
+        <img [src]="work.task.pic" alt="" class="content_img">
         <div class="content_details" >
             <h4>Task title : {{work.task.title}}</h4>
-            <h5>Member :{{work.member.user.fullname}}</h5>
-            <h5>Depart :{{work.task.department.name}}</h5>
-            <h5>date Depo :{{work.dateDepo| date:'dd-MMMM-YYYY'}}</h5>
-            <h5>Url work : {{work.url}}</h5>
+            <h5>Member : {{work.member.user.fullname}}</h5>
+            <h5>Departement : {{work.task.department.name}}</h5>
+            <h5>date Depo : {{work.dateDepo| date:'dd-MMMM-YYYY'}}</h5>
+            <h5>Url work : <span class="text-danger">{{work.url}}</span></h5>
         </div>
     </div>
     <div class="content_component_points">

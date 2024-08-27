@@ -8,7 +8,7 @@
         </div>
         <div>
             <!-- <button (click)="delete(user.member.member_id)"><mat-icon>delete</mat-icon></button> -->
-            <button *ngIf="!hasRole('OWNER')" (click)="activateUser(user)"><mat-icon>https</mat-icon></button>
+            <button *ngIf="!hasRole('OWNER') " (click)="activateUser(user)"><mat-icon>https</mat-icon></button>
         </div>
     </div>
 

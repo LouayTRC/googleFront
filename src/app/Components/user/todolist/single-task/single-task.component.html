@@ -1,10 +1,11 @@
 <section class="assignment" >
-    <img src="" alt="" class="todo_img" style="height:200px;border-radius:12px ;">
+    <img [src]="work.task.pic" alt="" class="todo_img" style="height:200px;border-radius:12px ;">
     <div class="todo_info">
         <h1 >{{work.task.title}}</h1>
         <h3>{{work.task.department.name}}</h3>
+        <p class="fs-5 text-primary">{{work.task.description}}</p>
         <div class="d-flex justify-content-around m" style="margin-top: 40px;">
-            <h6 >Deadline : {{work.task.ddl}}</h6>
+            <h6 >Deadline : {{work.task.ddl | date:"dd-MMMM-YYYY HH:mm"}}</h6>
         </div>
         <div class="d-flex justify-content-center m " style="margin-top: 20px;">
             <a routerLink="../work/{{work.id}}" class="btn btn-success">More Details</a>

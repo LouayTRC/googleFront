@@ -21,15 +21,14 @@ import { TaskService } from 'src/app/services/Task.service';
   styleUrls: ['./todolist.component.css']
 })
 export class TodolistComponent {
-  // departs2!: Departement[]
+  departs!: Department[]
   user!:User
   works!:Work[]
-  // user!: Member
-  textSearch:string=""
+  filtredWorks!:Work[]
+  taskFilter:string=""
+  departfilter:string="all"
   headers!:HttpHeaders
-  // filtre:string="both"
-  // constructor(, private active: ActivatedRoute, private router: Router, private mservice: MemberService) { }
-  constructor(private authService:AuthService,private wSerivce:WorkService){}
+  constructor(private authService:AuthService,private wSerivce:WorkService,private dService:DepartmentService){}
   ngOnInit() {
     const token=sessionStorage.getItem('token')
     this.headers=new HttpHeaders({
@@ -45,6 +44,7 @@ export class TodolistComponent {
 
     this.wSerivce.getWorksByMember(this.headers).subscribe((res)=>{
       this.works=res
+      this.filtredWorks=structuredClone(this.works)
     })
 
     // this.dservice.getDepartments().subscribe((res) => {
@@ -59,45 +59,31 @@ export class TodolistComponent {
 
   }
 
-  filtrer(aa: any) {
-    // console.log("zzz", aa.value);
-    // this.filtre=aa.value
-    // if (aa.value == "both") {
-    //   this.departs = structuredClone(this.departs2)
-    //   console.log("this", this.departs);
-    //   for (let i = 0; i < this.departs.length; i++) {
-    //     this.departs[i].tasks = this.departs[i].tasks.filter(element => element.title.includes(this.textSerach))
-    //   }
-    // }
-    // else {
-    //   this.departs = structuredClone(this.departs2)
-    //   this.departs = this.departs.filter((element) => element.name == aa.value)
-    //   for (let i = 0; i < this.departs.length; i++) {
-    //     this.departs[i].tasks = this.departs[i].tasks.filter(element => element.title.includes(this.textSerach))
-    //   }
-    //   console.log("trah", this.departs);
-
-    // }
+  filterByDepart(aa:String){
+    console.log("zzz",aa);
+    this.filtredWorks=this.works
+    if (this.taskFilter!="") {
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.title.toUpperCase().includes(this.taskFilter.toUpperCase()))
+    }
+    if (aa!="all") {
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department.name==aa)
+    }
+    else{
+      this.departfilter='all'
+    }
+    
   }
 
-  onKeypressEvent(event: any) {
+  filterByTask(){
+    this.filtredWorks=this.works
+    if(this.departfilter!="all"){
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department.name==this.departfilter)
 
-    // console.log(this.textSerach);
-    // console.log("departs",this.departs);
-    // console.log("departs2",this.departs2);
-    // if (this.textSerach == "") {
-    //   this.departs = structuredClone(this.departs2);
-    // }
-    // if (this.filtre=="both") {
-    //   this.departs = structuredClone(this.departs2);
-    // }
-    // else{
-    //   this.departs = structuredClone(this.departs.filter((element) => element.name == this.filtre))
-    // }
-    // for (let i = 0; i < this.departs.length; i++) {
-    //   this.departs[i].tasks = this.departs[i].tasks.filter(element => element.title.includes(this.textSerach))
-    // }
-    
-    
+    }
+    if (this.taskFilter!="") {
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.title.toUpperCase().includes(this.taskFilter.toUpperCase()))
+      
+    }
+
   }
 }

@@ -34,9 +34,11 @@ export class MemberCardComponent {
   activateUser(user:User){
     this.uService.updateStatusAccount(user.id,!user.enabled,this.headers).subscribe((res)=>{
       console.log("res",res);
-      
+      if (res.status) {
+        user.enabled=!user.enabled
+      }
     });
-    user.enabled=!user.enabled
+    
     
       
     

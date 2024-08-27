@@ -13,7 +13,7 @@
     <table class="table table-bordered border-primary">
         <app-shared-component-label page="tasks"></app-shared-component-label>
         <div class="" *ngIf="tasks!=undefined">
-            <app-shared-component *ngFor="let t of filtredTasks" (update)="miseAJour($event)" (delete)="suppression($event)"
+            <app-shared-component *ngFor="let t of filtredTasks.reverse()" (update)="miseAJour($event)" (delete)="suppression($event)"
                 [task]="t"></app-shared-component>
         </div>
     </table>

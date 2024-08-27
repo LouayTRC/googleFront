@@ -64,7 +64,7 @@
         </div>
         <div class="shared_form_parts">
             <label for="">Date</label>
-            <input type="date" formControlName="ddl">
+            <input type="datetime-local" formControlName="ddl">
         </div>
         <div *ngIf="ddl?.errors?.['required'] && ddl?.touched" class="alert alert-danger">
             indiquez le deadline

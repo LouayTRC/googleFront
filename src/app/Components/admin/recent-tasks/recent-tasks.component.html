@@ -26,7 +26,7 @@
         <ng-container *ngIf="d.tasks.length > 0">
             <h2 class="table_title text-center text-primary">{{d.name}} Departement</h2>
             <div class="tasks_container mx-3">
-                <ng-container *ngFor="let td of d.tasks.sort(); index as i;">
+                <ng-container *ngFor="let td of d.tasks.reverse(); index as i;">
                     <app-task *ngIf="i < 3" [task]="td"></app-task>
                 </ng-container>
             </div>

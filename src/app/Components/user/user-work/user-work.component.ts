@@ -32,23 +32,18 @@ export class UserWorkComponent {
       this.work=res
       console.log('assignment',this.task);
     })
-  //   this.active.parent?.params.subscribe(params => {
-  //     const id=params["id"];
-  //     console.log("id",id);
-  //     this.mservice.getMemberById(id).subscribe((res)=>{
-  //       this.user=res
-  //       console.log("user",this.user);
-        
-  //     })
-  //  });
+
   }
   submitWork(){
     console.log("current work",this.work);
     
     this.wservice.submitWork(this.work.id,this.work.url,this.headers).subscribe((res)=>{
       console.log("work added",res);
-      this.router.navigate(["/home"])
+      if (res) {
+        this.router.navigate(["/home"])
+      }
       
     })
   }
+
 }
