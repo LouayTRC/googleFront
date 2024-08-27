@@ -1,4 +1,4 @@
-<div class="scorecard_popup"  *ngIf="scoreCard!=undefined">
+<!-- <div class="scorecard_popup"  >
     <div class="popup_header">
         <h1 class="titles">Scorecard:</h1>
         <mat-icon class="close_icon" mat-button [mat-dialog-close]="true">close</mat-icon>
@@ -36,4 +36,46 @@
             <button type="submit" class="single_button popup_button" (click)="updateMs(scoreCard)">Submit</button>
         </div>
     </form>
+</div> -->
+
+
+<div class="container-fluid" *ngIf="scoreCard!=undefined">
+    <div class="modal-dialog">
+        <div class="modal-content mt-2">
+            <div class="modal-header d-flex justify-content-between">
+                <h5 class="modal-title text-center">ScoreCard of <span class="text-danger">{{scoreCard.member.user.fullname}}</span> on <span class="text-danger">{{scoreCard.month}}</span>/<span class="text-danger">{{scoreCard.year}}</span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closePopup()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body my-3">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col">
+                        <label for="" class="">Departments Points :</label>
+                        <input class="form-control" name="depart" [value]="scoreCard.departsPoints" disabled type="number" min="0" max="20">
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col">
+                        <label for="" class="">Discipline :</label>
+                        <input class="form-control" name="discipline" [(ngModel)]="scoreCard.discipline" type="number" min="0" max="20">
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col">
+                        <label for="" class="">Contribution :</label>
+                        <input class="form-control" name="contribution" [(ngModel)]="scoreCard.contribution" type="number" min="0" max="20">
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center ">
+                <button type="button" class="btn btn-secondary" (click)="closePopup()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="updateMs(scoreCard)">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>

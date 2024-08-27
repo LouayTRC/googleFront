@@ -1,20 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DepartmentService } from 'src/app/Services/department.service';
 import { Task } from 'src/app/models/Task';
 
 import { AddPopupComponent } from '../popups/shared_popups/add-popup/add-popup.component';
 import { TaskService } from 'src/app/services/Task.service';
 import { HttpHeaders } from '@angular/common/http';
-// import { TaskService } from 'src/app/services/Task.service';
-
-
-// import { PasswordPopupComponent } from '../../popups/pop_ups/password-popup/password-popup.component';
-// import { ScorecardPopupComponent } from '../../popups/pop_ups/scorecard-popup/scorecard-popup.component';
-// import { SignoutPopupComponent } from '../../popups/pop_ups/signout-popup/signout-popup.component';
-// import { AddPopupComponent } from '../../popups/shared_popups/add-popup/add-popup.component';
-// import { DepartService } from 'src/app/services/depart.service';
-// import { Task } from 'src/app/models/Task';
 
 
 @Component({
@@ -23,44 +13,57 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./alltasks.component.css']
 })
 export class AlltasksComponent {
-  headers!:HttpHeaders
-  tasks: Task[]=[]
+  titleFilter:string=""
+
+  headers!: HttpHeaders
+  tasks: Task[] = []
+  filtredTasks!:Task[]
   constructor(private dialogRef: MatDialog, private tservice: TaskService) {
 
   }
   ngOnInit() {
-    
 
-    const token=sessionStorage.getItem('token')
-    this.headers=new HttpHeaders({
+
+    const token = sessionStorage.getItem('token')
+    this.headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
 
     this.tservice.getTasks(this.headers).subscribe((res) => {
-      console.log("res",res);
-      
+      console.log("res", res);
+
       this.tasks = res;
+      this.filtredTasks=structuredClone(this.tasks)
     })
   }
 
   openAddPopup() {
     this.dialogRef.open(AddPopupComponent, {
       data: { ComponentName: "tasks" }
-    }).afterClosed().subscribe(item => this.tasks.push(item))
+    }).afterClosed().subscribe(item => {
+
+      if (item) { this.filtredTasks.push(item) }
+    })
   }
-  suppression(aa:Task){
-  //   for (let i = 0; i < this.departs.length; i++) {
-  //     this.departs[i].tasks=this.departs[i].tasks.filter((element:Task)=>element.id!=aa.id)
-  //   }
+  suppression(aa: Task) {
+    this.filtredTasks=this.filtredTasks.filter((element:Task)=>element.id!=aa.id)
   }
-  miseAJour(aa:Task){
-  //   for (let i = 0; i < this.departs.length; i++) {
-  //     for (let j = 0; j < this.departs[i].tasks.length; j++) {
-  //       if(this.departs[i].tasks[j]==aa){
-  //         this.departs[i].tasks[j]=aa;
-  //       }
-  //     }
-  //   }
+  miseAJour(aa: Task) {
+    //   for (let i = 0; i < this.departs.length; i++) {
+    //     for (let j = 0; j < this.departs[i].tasks.length; j++) {
+    //       if(this.departs[i].tasks[j]==aa){
+    //         this.departs[i].tasks[j]=aa;
+    //       }
+    //     }
+    //   }
+  }
+  filterByName(){
+    if (this.titleFilter!="") {
+      this.filtredTasks=this.tasks.filter(elem=>elem.title.toUpperCase().includes(this.titleFilter))
+    } else {
+      this.filtredTasks=this.tasks
+    }
+    
   }
 }

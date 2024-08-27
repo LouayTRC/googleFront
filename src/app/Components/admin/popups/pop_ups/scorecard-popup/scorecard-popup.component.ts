@@ -1,3 +1,4 @@
+import { DialogRef } from '@angular/cdk/dialog';
 import { HttpHeaders } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -16,7 +17,7 @@ export class ScorecardPopupComponent {
   headers!:HttpHeaders
   scoreCard!: MonthScore
   
-  constructor(private mSService: MonthScoreService,@Inject(MAT_DIALOG_DATA) public data:any) { }
+  constructor(private mSService: MonthScoreService,@Inject(MAT_DIALOG_DATA) public data:any,private matDialog:DialogRef) { }
   ngOnInit() {
     const token=sessionStorage.getItem('token')
     this.headers=new HttpHeaders({
@@ -38,5 +39,8 @@ export class ScorecardPopupComponent {
     this.mSService.updateMonthScore(ms.score_id,ms,this.headers).subscribe((res)=>{
       
     })
+  }
+  closePopup(){
+    this.matDialog.close()
   }
 }

@@ -1,21 +1,23 @@
-<div class="content_page">
-    <!-- <div class="search_content">
-        <h5>Search for Content</h5>
-        <div class="search_part">
-            <label for="Dev">Dev</label>
-            <input type="radio" value="dev" #dev (click)="filtrer(dev)" name="dep_choice" id="">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 mt-3">
+            <h5 class="text-center  mb-5">Search for Content</h5>
+            <div class="" *ngFor="let d of departs">
+                <label [for]="d.id">{{d.name}}</label>
+                <input type="radio" [value]="d.name" [(ngModel)]="departfilter"  (click)="filterByDepart(d.name)" name="dep_choice" [id]="d.id">
+            </div>
+            <div class="search_part">
+                <label for="Both">Both</label>
+                <input type="radio" checked (click)="filterByDepart('all')" name="dep_choice" id="">
+            </div>
+            <div class="">
+                <input type="text" class="form-control" [(ngModel)]="memberFilter" (keyup)="filterByMember()" placeholder="search By Member">
+            </div>
         </div>
-        <div class="search_part">
-            <label for="Media">Media</label>
-            <input type="radio" value="media" #media (click)="filtrer(media)" name="dep_choice" id="">
+        <div class="col-8 mt-3">
+            <h5 class="text-center">Content</h5>
+            <app-single-component *ngFor="let w of filtredWorks" [work]="w"></app-single-component>
         </div>
-        <div class="search_part">
-            <label for="Both">Both</label>
-            <input type="radio" checked value="both" #both (click)="filtrer(both)" name="dep_choice" id="">
-        </div>
-    </div> -->
-    <div class="content_container">
-        <h5>Content</h5>
-            <app-single-component *ngFor="let w of works" [work]="w"></app-single-component>
     </div>
+    
 </div>

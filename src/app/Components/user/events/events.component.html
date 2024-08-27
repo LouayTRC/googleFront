@@ -24,11 +24,11 @@
     <div *ngFor="let ev of events">
         <div class="event_container m" >
             <div class="event d-flex justify-content-center flex-column" [ngClass]="{'expired-event':!ev.status}">
-                <img src="../../../../assets/images/back-event.png" alt="">
+                <img [src]="ev.pic" alt="">
                 <h1 class="eventDes">{{ev.title}}</h1>
                 <p class="eventDes" id="des">{{ev.description}}</p>
-                <div  class="d-flex justify-cobgntent-around">
-                    <h4 class="eventDes">Date : {{ev.dateEvent|date:'dd-MMMM-YYYY'}}  </h4>
+                <div  class="d-flex justify-content-between">
+                    <h4 class="eventDes">Date : {{ev.dateEvent|date:'dd-MMMM-YYYY HH:mm'}}  </h4>
                     <h4 class="eventDes">  Place : {{ev.place}}</h4>
                 </div>
             </div>

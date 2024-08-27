@@ -83,13 +83,16 @@ export class AddPopupComponent {
   get Edescription() {
     return this.newEvent.controls['description']
   }
-  addEvent() {
+  async addEvent() {
     // if (this.file) {
     //   const path = `events/${this.file.name}`
     //   this.fireStorage.upload(path,this.file).then(data => {
     //     const uploadUser = data;
     //     uploadUser.ref.getDownloadURL().then(data2 => {
     //       this.newEvent.value.pic=data2
+    if (this.file) {
+      this.newEvent.value.pic=await this.uploadPic(this.file)
+    }
     if (this.eventDeps.length != 0) {
       this.newEvent.value.departments = this.eventDeps
       this.eservice.addEvent(this.newEvent.value,this.headers).subscribe((res) => {
@@ -107,7 +110,7 @@ export class AddPopupComponent {
   }
 
   async addTask() {
-      if (this.file && this.data.ComponentName == "tasks") {
+      if (this.file) {
         this.newTask.value.pic=await this.uploadPic(this.file)
       }
     console.log("deop", this.newTask.value.department);

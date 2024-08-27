@@ -1,35 +1,30 @@
-
-<section class="settings_container" *ngIf="currentUser!=undefined">
+<section class="settings_container" *ngIf="user!=undefined">
     <div class="settings">
         <div  class="settings_member">
-            <img [src]="currentUser.pdp" alt="img" class="user-profile">
-            <h2>{{currentUser.fullname}}</h2>
-            <h3>{{currentUser.role}}</h3>
-            <p>Points : {{currentUser.score}}</p>
+            <img [src]="user.pdp" alt="img" class="user-profile">
+            <h2>{{user.fullname}}</h2>
+            <p *ngIf="user.member">Points : {{user.member.score|number:'1.0-2'}}</p>
         </div>
         <div  class="form_container">
-            <form class="settings_form" [formGroup]="settingsForm" (ngSubmit)="editProfile()" method="post">
+            <form class="settings_form" [formGroup]="passwordChange"  method="post">
                 <div class="form_part">
                     <div class="input_and_label">
-                        <label for="">Name</label>
-                        <input type="text" formControlName="fullname" placeholder="Change your name">
-                    </div>
-                    <div class="input_and_label">
-                        <label for="">username</label>
-                        <input type="text" formControlName="username" placeholder="Change your forname">
+                        <label for="">Old password :</label>
+                        <input type="password" formControlName="oldPwd" name="oldPwd" class="text-dark" placeholder="Type your current password">
                     </div>
                 </div>
                 <div class="form_part">
                     <div class="input_and_label">
-                        <label for="">Email</label>
-                        <input type="email" formControlName="mail" placeholder="Change your Email">
+                        <label for="">New password :</label>
+                        <input type="password" formControlName="newPwd" name="newPwd" class="text-dark" placeholder="Type a new Password">
                     </div>
                     <div class="input_and_label">
-                        <label for="">Password</label>
-                        <input type="text" formControlName="password" placeholder="Change your password">
+                        <label for="">Confirm password :</label>
+                        <input type="password" formControlName="newPwd2" name="newPwd2"  class="text-dark" placeholder="Confirm that password">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-danger">Save Changes</button>
+                
+                <button type="submit" (click)="changePassword()" [disabled]="checkFields()" class="btn btn-danger">Change Password</button>
             </form>
         </div>
     </div>

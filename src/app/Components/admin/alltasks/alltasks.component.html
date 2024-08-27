@@ -1,11 +1,22 @@
-<div class="pages_content">
-    <div class="button_area">
-        <button class="single_button" (click)="openAddPopup();">Add Task</button>
+<div class="container ">
+    <div class="row my-3">
+        <div class="col-2 mt-2">
+            <button class="btn btn-primary" (click)="openAddPopup();">Add Task</button>
+        </div>
+        <div class="col-8">
+            <h1 class="text-center text-danger">All Tasks</h1>
+        </div>
+        <div class="col-2 mt-3">
+            <input type="text" class="form-control" [(ngModel)]="titleFilter" (keyup)="filterByName()" placeholder="search for task">
+        </div>
     </div>
-    <div class="content_area">
+    <table class="table table-bordered border-primary">
         <app-shared-component-label page="tasks"></app-shared-component-label>
-    </div>
-    <div class="content_area" *ngIf="tasks!=undefined">
-        <app-shared-component *ngFor="let t of tasks" (update)="miseAJour($event)" (delete)="suppression($event)"  [task]="t"></app-shared-component>
-    </div>
+        <div class="" *ngIf="tasks!=undefined">
+            <app-shared-component *ngFor="let t of filtredTasks" (update)="miseAJour($event)" (delete)="suppression($event)"
+                [task]="t"></app-shared-component>
+        </div>
+    </table>
+
+
 </div>

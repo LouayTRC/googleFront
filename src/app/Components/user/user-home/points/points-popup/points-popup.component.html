@@ -12,7 +12,7 @@
             <ng-container *ngFor="let s of scores;index as i;">
                 <tr *ngIf="i<8">
                     <td>{{s.month}}/{{s.year}}</td>
-                    <td>{{s.score}}</td>
+                    <td>{{s.score | number:'1.0-2'}}</td>
                 </tr>
             </ng-container>
         </tbody>

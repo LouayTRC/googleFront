@@ -22,16 +22,18 @@ import { Work } from 'src/app/models/work';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent {
+  memberFilter:string=""
+  departfilter:string="all"
   works!:Work[]
+  filtredWorks!:Work[]
   departs!:Department[]
-  departs2!:Department[]
   headers!:HttpHeaders
   constructor(private wService:WorkService,private dService:DepartmentService){}
 
   ngOnInit(){
-    // this.dService.getDepartments().subscribe((res)=>{
-    //   this.departs=res
-    // })
+    this.dService.getDepartments().subscribe((res)=>{
+      this.departs=res
+    })
     const token=sessionStorage.getItem('token')
     this.headers=new HttpHeaders({
       'Content-Type': 'application/json',
@@ -40,22 +42,37 @@ export class ContentComponent {
 
     this.wService.getAllWorks(this.headers).subscribe((res)=>{
       this.works=res
+      this.filtredWorks=structuredClone(this.works)
       console.log("works",res);
     })
   }
-  // filtrer(aa:any){
-  //   console.log("zzz",aa.value);
+  filterByDepart(aa:String){
+    console.log("zzz",aa);
+    this.filtredWorks=this.works
+    if (this.memberFilter!="") {
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.member.user.fullname.toUpperCase().includes(this.memberFilter.toUpperCase()))
+    }
+    if (aa!="all") {
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department.name==aa)
+    }
+    else{
+      this.departfilter='all'
+    }
     
-  //   if (aa.value=="both") {
-  //     this.departs=this.departs2
-  //     console.log("this",this.departs);
+  }
+
+  filterByMember(){
+    this.filtredWorks=this.works
+    if(this.departfilter!="all"){
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department.name==this.departfilter)
+
+    }
+    if (this.memberFilter!="") {
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.member.user.fullname.toUpperCase().includes(this.memberFilter.toUpperCase()))
       
-  //   }
-  //   else {
-  //     this.departs=this.departs2
-  //     this.departs=this.departs.filter((element)=>element.name==aa.value)
-  //     console.log("trah",this.departs);
-      
-  //   }
-  // }
+    }
+
+  }
+
+
 }

@@ -57,6 +57,5 @@ export class AddAdminComponent {
     })
     console.log("Admin Data:", this.adminForm.value);
     
-    // Proceed with form submission logic here, using `formValue`
   }
 }

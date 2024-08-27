@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-body {
+/* body {
     font-family: "Poppins", sans-serif;
     margin: 0px;
     padding: 0px;
@@ -9,14 +9,14 @@ body {
 html,
 body {
     height: 100%;
-}
+} */
 
 /* You can add global styles to this file, and also import other style files */
-body {
+/* body {
     height: 100vh;
-}
+} */
 
-.titles {
+/* .titles {
     padding: 15px;
     color: #185ABC;
 }
@@ -350,4 +350,12 @@ body {
     .mat-drawer-content {
         display: inline;
     }
+} */
+
+
+/* Louuuuu */
+
+.centered-popup{
+    transform: translate(50%,50%);
+    background-color: black;
 }

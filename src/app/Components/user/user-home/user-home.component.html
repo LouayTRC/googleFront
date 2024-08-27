@@ -8,7 +8,7 @@
                     <div (click)="openPointspopup();" class="card-user points_card d-flex flex-column justify-content-center points">
                         <img src="../../../../assets/icons/coins.png" alt="" class="icon-article">
                         <h2>Points</h2>
-                        <h3>{{this.user.member?.score}}</h3>
+                        <h3>{{this.user.member?.score | number:'1.0-2'}}</h3>
                     </div>
                 </button>
             </div>
@@ -45,7 +45,7 @@
                             <tr *ngIf="i<5">
                                 <th scope="row"></th>
                                 <td>{{l.user.fullname}}</td>
-                                <td>{{l.score}}</td>
+                                <td>{{l.score| number:'1.0-2'}}</td>
                             </tr>
                         </ng-container>
                         

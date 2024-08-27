@@ -7,26 +7,26 @@
 <section *ngIf="members!=undefined">
   <div class="top_3 m responsive-order" *ngIf="members.length>=3">
     <div class="card-user d-flex flex-column justify-content-center user-of-month second" >
-      <img [src]="members[1].pdp" alt="" class="user-profile"
+      <img [src]="members[1].user.pdp" alt="" class="user-profile"
         style="align-self: center;margin-bottom: 30px;width:80px;height:80px;">
-      <h2>{{members[1].fullname}}</h2>
+      <h2>{{members[1].user.fullname}}</h2>
       <h3>Second Place</h3>
-      <h4>Points : {{members[1].score}}</h4>
+      <h4>Points : {{members[1].score |number:'1.0-2'}}</h4>
     </div>
     <div class="card-user d-flex flex-column justify-content-center user-of-month winner" style="margin-bottom: 80px;">
       <img src="assets/ressource/icons/crown.png" alt="" class="icon" style="align-self: center  ;">
-      <img [src]="members[0].pdp" alt="" class="user-profile"
+      <img [src]="members[0].user.pdp" alt="" class="user-profile"
         style="align-self: center;margin-bottom: 30px;width:80px;height:80px;">
-      <h2>{{members[0].fullname}}</h2>
+      <h2>{{members[0].user.fullname}}</h2>
       <h3>First Place</h3>
-      <h4>Points : {{members[0].score}}</h4>
+      <h4>Points : {{members[0].score|number:'1.0-2'}}</h4>
     </div>
     <div class="card-user d-flex flex-column justify-content-center user-of-month third">
-      <img [src]="members[2].pdp" alt="" class="user-profile"
+      <img [src]="members[2].user.pdp" alt="" class="user-profile"
         style="align-self: center;margin-bottom: 30px;width:80px;height:80px;">
-      <h2>{{members[2].fullname}}</h2>
+      <h2>{{members[2].user.fullname}}</h2>
       <h3>Third Place</h3>
-      <h4>Points : {{members[2].score}}</h4>
+      <h4>Points : {{members[2].score|number:'1.0-2'}}</h4>
     </div>
   </div>
 </section>
@@ -45,8 +45,8 @@
       <tbody>
         <tr *ngFor="let tmember of members">
           <th scope="row"></th>
-          <td>{{tmember.fullname}}</td>
-          <td>{{tmember.score}}</td>
+          <td>{{tmember.user.fullname}}</td>
+          <td>{{tmember.score| number:'1.0-2'}}</td>
         </tr>
       </tbody>
     </table>

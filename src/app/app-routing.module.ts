@@ -14,6 +14,9 @@ import { EventsComponent } from './Components/user/events/events.component';
 import { memberGuard } from './guards/member.guard';
 import { adminGuard } from './guards/admin.guard';
 import { ScorecardsComponent } from './Components/admin/scorecards/scorecards.component';
+import { SettingsComponent } from './Components/user/settings/settings.component';
+import { LeaderBoardComponent } from './Components/admin/leader-board/leader-board.component';
+import { LeaderboardComponent } from './Components/user/leaderboard/leaderboard.component';
 
 const routes: Routes = [
   { path: 'home',title:"iset.ch google club", component:  MainComponent},
@@ -21,9 +24,11 @@ const routes: Routes = [
 
   { path:'member',title:'Member dashboard',component:UserComponent,children:[
     {path:"home",title:"Home",component:UserHomeComponent},
+    {path:"leaderboard",title:"leaderboard",component:LeaderboardComponent},
     {path:"works",title:"works",component:TodolistComponent},
     {path: "work/:aid",title:"work",  component: UserWorkComponent },
     {path: "events",title:"Events",  component: EventsComponent },
+    {path: "settings",title:"settings",  component: SettingsComponent },
     {path:"",redirectTo:"home",pathMatch:'full'},
   ],canActivate:[memberGuard]},
 

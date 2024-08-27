@@ -43,12 +43,14 @@ export class SharedComponentComponent {
     }).afterClosed().subscribe(res=>{
       console.log("res",res);
       console.log("control",this.event);
-      
-      if (this.event!=undefined) {
-        this.event=res
-      } else {
-        this.task=res
+      if (res!=null) {
+        if (this.event!=undefined) {
+          this.event=res
+        } else {
+          this.task=res
+        }
       }
+      
       this.update.emit(res)
     })
   }

@@ -1,4 +1,4 @@
-<div class="recent_tasks_box" *ngIf="departs">
+<!-- <div class="recent_tasks_box" *ngIf="departs">
     <h1 class="titles">Recent Tasks</h1>
     <ng-container *ngFor="let d of departs">
         <ng-container *ngIf="d.tasks.length>0">
@@ -10,6 +10,24 @@
                 </div>
                 <ng-container *ngFor="let td of d.tasks.sort();index as i;">
                     <app-task *ngIf="i<3" [task]="td"></app-task>
+                </ng-container>
+            </div>
+        </ng-container>
+    </ng-container>
+</div> -->
+<div class="recent_tasks_box container py-3" *ngIf="departs">
+    
+    <h1 class="text-primary text-center">Recent Tasks</h1>
+    <div class="tasks_header d-flex align-items-center justify-content-between">
+        <h2>Task</h2>
+        <h2>Task Status</h2>
+    </div>
+    <ng-container *ngFor="let d of departs">
+        <ng-container *ngIf="d.tasks.length > 0">
+            <h2 class="table_title text-center text-primary">{{d.name}} Departement</h2>
+            <div class="tasks_container mx-3">
+                <ng-container *ngFor="let td of d.tasks.sort(); index as i;">
+                    <app-task *ngIf="i < 3" [task]="td"></app-task>
                 </ng-container>
             </div>
         </ng-container>

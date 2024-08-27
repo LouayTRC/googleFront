@@ -1,9 +1,31 @@
-<div class="pages_content">
+<!-- <div class="pages_content">
     <div class="button_area">
-        <button class="single_button" (click)="openAddPopup();">Add Event</button>
+        <button class="single_button" (click)="openAddPopup();"></button>
     </div>
     <div class="content_area" *ngIf="events!=undefined">
         <app-shared-component-label page="events"></app-shared-component-label>
         <app-shared-component *ngFor="let e of events" (update)="miseAJour($event)" (delete)="suppression($event)" [event]="e" ></app-shared-component>
     </div>
+</div> -->
+<div class="container ">
+    <div class="row my-3">
+        <div class="col-2 mt-2">
+            <button class="btn btn-primary" (click)="openAddPopup();">Add Event</button>
+        </div>
+        <div class="col-8">
+            <h1 class="text-center text-danger">Events</h1>
+        </div>
+        <div class="col-2 mt-3">
+            <input type="text" class="form-control" [(ngModel)]="titleFilter" (keyup)="filterByName()" placeholder="search for Event">
+        </div>
+    </div>
+    <table class="table table-bordered border-primary">
+        <app-shared-component-label page="tasks"></app-shared-component-label>
+        <div class="" *ngIf="events!=undefined">
+            <app-shared-component *ngFor="let e of filtredEvents" (update)="miseAJour($event)" (delete)="suppression($event)"
+                [event]="e"></app-shared-component>
+        </div>
+    </table>
+
+
 </div>

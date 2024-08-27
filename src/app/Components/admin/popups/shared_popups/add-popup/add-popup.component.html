@@ -5,7 +5,7 @@
     </div>
     <form action="" [formGroup]="newEvent" (ngSubmit)="addEvent()">
         <div class="shared_form_parts">
-            <label for="">Name</label>
+            <label for="">Title</label>
             <input type="text" formControlName="title">
         </div>
         <div *ngIf="TitleE?.errors?.['required'] && TitleE?.touched" class="alert alert-danger">

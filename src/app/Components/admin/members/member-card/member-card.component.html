@@ -1,4 +1,4 @@
-<div class="member_card" *ngIf="user">
+<div class="member_card" >
 
     <img [src]="user.pdp" alt="" class="member_image">
     <div class="member_info">
@@ -13,3 +13,28 @@
     </div>
 
 </div>
+<!-- <div class="col-lg-3 col-md-4 col-sm-6 card mb-2" *ngIf="user">
+    <img [src]="user.pdp" class="img w-100 h-100 card-header">
+    <div class="card-body">
+        <div class="row d-flex justify-content-between">
+            <div class="col">
+                <h3 class="fs-5" [ngStyle]="{'color': user.enabled ? 'green' : 'red'}">{{user.fullname}}</h3>
+            </div>
+            
+            <div class="col-4">
+                <button *ngIf="!hasRole('OWNER')" (click)="activateUser(user)"><mat-icon>https</mat-icon></button>
+        </div>
+        <div class="row d-flex justify-content-between">
+            <div class="col-6">
+                <h3 class="fs-5 text-start">Score : {{ s.score | number:'1.0-2' }}</h3>
+
+            </div>
+            <div class="col-6">
+                <h3 class="text-danger text-end fs-6 mt-1">{{s.month}}/{{s.year}}</h3>
+            </div>
+            
+        </div>
+        
+        
+    </div>
+</div> -->

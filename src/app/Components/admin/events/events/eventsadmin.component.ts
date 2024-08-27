@@ -12,6 +12,8 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./eventsadmin.component.css']
 })
 export class EventsadminComponent {
+  titleFilter:string=""
+  filtredEvents!:Event[]
   events!:Event[]
   headers!:HttpHeaders
   constructor(private dialogRef: MatDialog,private eservice:EventService){}
@@ -24,6 +26,7 @@ export class EventsadminComponent {
 
     this.eservice.getEvents(this.headers).subscribe((res)=>{
       this.events=res
+      this.filtredEvents=structuredClone(this.events)
       console.log("events",this.events);
       
     })
@@ -32,13 +35,13 @@ export class EventsadminComponent {
     this.dialogRef.open(AddPopupComponent,{
       data:{ComponentName:"events"}
     }).afterClosed().subscribe(item=>{
-      this.events.push(item)
+      this.filtredEvents.push(item)
       console.log("item",item);
       
     })
   }
   suppression(aa:Event){
-    this.events=this.events.filter((element:Event)=>element.id!=aa.id)
+    this.filtredEvents=this.filtredEvents.filter((element:Event)=>element.id!=aa.id)
   }
   miseAJour(aa:Event){
     // for (let i = 0; i < this.departs.length; i++) {
@@ -51,5 +54,13 @@ export class EventsadminComponent {
     //   }
       
     // }
+  }
+  filterByName(){
+    if (this.titleFilter!="") {
+      this.filtredEvents=this.events.filter(elem=>elem.title.toUpperCase().includes(this.titleFilter))
+    } else {
+      this.filtredEvents=this.events
+    }
+    
   }
 }

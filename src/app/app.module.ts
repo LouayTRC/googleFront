@@ -61,6 +61,8 @@ import { ScorecardPopupComponent } from './Components/admin/popups/pop_ups/score
 import { environment } from 'src/environment';
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+import { SettingsComponent } from './Components/user/settings/settings.component';
+import { LeaderboardComponent } from './Components/user/leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +115,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage'
     AddAdminComponent,
     ScorecardsComponent,
     ScorecardPopupComponent,
-    PasswordPopupComponent
+    PasswordPopupComponent,
+    SettingsComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,
