@@ -15,7 +15,15 @@ export class ApplicationService {
     return this.http.get<Application[]>(this.baseUrl,{headers:headers})
   }
 
+  getApplicationById(id:number,headers?:HttpHeaders):Observable<Application>{
+    return this.http.get<Application>(this.baseUrl+"/"+id,{headers:headers})
+  }
+
   addApplication(form:Application):Observable<Application>{
-    return this.http.post<Application>(this.baseUrl,form)
+    return this.http.post<Application>(this.baseUrl+"/add",form)
+  }
+
+  updateStatus(id:number,status:number,headers?:HttpHeaders):Observable<Application>{
+    return this.http.put<Application>(this.baseUrl+"/update/"+id,status,{headers:headers})
   }
 }

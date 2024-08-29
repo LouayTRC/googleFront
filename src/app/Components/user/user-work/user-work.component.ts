@@ -15,7 +15,6 @@ export class UserWorkComponent {
   // constructor(,private mservice:MemberService,private depoService:DepoService){}
   // currentAssignment!:Task
   // user!:Member
-  task!:Task
   work!:Work
   headers!:HttpHeaders
   constructor(private active:ActivatedRoute,private wservice:WorkService,private router:Router){}
@@ -30,7 +29,7 @@ export class UserWorkComponent {
     const workId=this.active.snapshot.params['aid'];
     this.wservice.getWorkById(workId,this.headers).subscribe((res)=>{
       this.work=res
-      console.log('assignment',this.task);
+      console.log('assignment',this.work);
     })
 
   }

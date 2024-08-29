@@ -20,13 +20,15 @@
         <button class="single_button" (click)="openDeletePopup(task.id,'tasks');">Delete</button>
     </div>
 </div>
-<div class="shared_component" *ngIf="candidat!=undefined">
-    <h3>{{candidat.fullname}}</h3>
-    <h3>{{candidat.mail}}</h3>
-    <h3>{{candidat.classe}}</h3>
-    <h3>{{candidat.depart}}</h3>
+<div class="shared_component" [ngClass]="{'text-danger':app.status==-1,'text-dark':app.status==0,'text-success':app.status==1}" *ngIf="app">
+    <h3>{{app.fullname}}</h3>
+    <h3>{{app.mail}}</h3>
+    <h3>{{app.depart}}</h3>
+    <h3>{{app.clubsExperience}}</h3>
     <div class="component_buttons">
-        <button class="single_button" (click)="openDetailsPopup(candidat.id,'candidat')">Details</button>
+        <button class="single_button" (click)="openDetailsPopup(app.id,'application')">Details</button>
+        <button class="btn btn-danger" (click)="updateApplication(app,1)" [disabled]="app.status!=0">Accept</button>
+        <button class="btn btn-dark" (click)="updateApplication(app,-1)" [disabled]="app.status!=0">Refuse</button>
     </div>
 </div>
 

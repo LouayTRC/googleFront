@@ -17,9 +17,13 @@ import { ScorecardsComponent } from './Components/admin/scorecards/scorecards.co
 import { SettingsComponent } from './Components/user/settings/settings.component';
 import { LeaderBoardComponent } from './Components/admin/leader-board/leader-board.component';
 import { LeaderboardComponent } from './Components/user/leaderboard/leaderboard.component';
+import { ApplicationsAdminComponent } from './Components/admin/applications-admin/applications-admin.component';
+import { Application } from './models/application';
+import { ApplicationComponent } from './Components/accounts/application/application.component';
 
 const routes: Routes = [
   { path: 'home',title:"iset.ch google club", component:  MainComponent},
+  { path: 'apply',title:"Apply To Join", component:  ApplicationComponent},
 
 
   { path:'member',title:'Member dashboard',component:UserComponent,children:[
@@ -37,6 +41,7 @@ const routes: Routes = [
     {path:'home',title:'home',component:DashboardHomeComponent}, 
     {path:'tasks',title:'tasks',component:AlltasksComponent}, 
     {path:'content',title:'works',component:ContentComponent}, 
+    {path:'applications',title:'applications',component:ApplicationsAdminComponent}, 
     {path:'events',title:'events',component:EventsadminComponent}, 
     {path:'scorecards',title:'scoreCards',component:ScorecardsComponent}, 
     {path:'',redirectTo:'home',pathMatch:'full'},

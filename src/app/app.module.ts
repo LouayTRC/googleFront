@@ -63,6 +63,7 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'
 import { SettingsComponent } from './Components/user/settings/settings.component';
 import { LeaderboardComponent } from './Components/user/leaderboard/leaderboard.component';
+import { ApplicationsAdminComponent } from './Components/admin/applications-admin/applications-admin.component';
 
 @NgModule({
   declarations: [
@@ -117,7 +118,11 @@ import { LeaderboardComponent } from './Components/user/leaderboard/leaderboard.
     ScorecardPopupComponent,
     PasswordPopupComponent,
     SettingsComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    SharedComponentLabelComponent,
+    SharedComponentComponent,
+    ApplicationsAdminComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div class="applicationpage_container">
+<div class="applicationpage_container" >
     <header class="application_header">
         <img src="../../../assets/images/Untitled__2_-removebg-preview.png" alt="">
         <h4>Isetch Google Club Membership Application</h4>
@@ -7,7 +7,7 @@
         <div class="application_container">
             <h4>Application From</h4>
             <p>Make sure to answer all the questions and to provide your personal email.</p>
-            <!-- <form [formGroup]="appForm" (ngSubmit)="addApplication()" style="height:100%;">
+            <form [formGroup]="appForm"  style="height:100%;">
                 <table style="height:100%;">
                     <tr class="tr_style">
                         <td>
@@ -17,7 +17,7 @@
                             <input class="input_style" type="text" placeholder="Type your name" formControlName="fullname" name="fullname">
                         </td>
                         <div *ngIf="Fullname?.errors?.['required'] && Fullname?.touched" class="alert alert-danger">
-                            Username est Obligatoire
+                            Fullname est Obligatoire
                         </div>
                     </tr>
                     <tr class="tr_style">
@@ -36,29 +36,14 @@
                     </tr>
                     <tr class="tr_style">
                         <td>
-                            <label class="label_style" for="">What department do you want to join ?</label>
+                            <label class="label_style" for="">What departments do you want to join ? (Dev/Media/Rh)</label>
                         </td>
                         <td>
-                            <select  formControlName="depart" name="depart" id="" class="select_style">
-                                <optgroup>
-                                    <option value="Dev">Dev</option>
-                                    <option value="Media">Media</option>
-                                </optgroup>
-                            </select>
+                            <textarea class="input_style"  formControlName="depart" name="depart" id=""></textarea>
                         </td>
-                    </tr>
-                    <tr class="tr_style">
-                        <td>
-                            <label class="label_style" for="">what Department are you studying ?</label>
-                        </td>
-                        <td>
-                            <select  formControlName="facDepart" name="facDepart" id="" class="select_style" >
-                                <optgroup >
-                                    <option value="TI">TI</option>
-                                    <option value="SEG">SEG</option>
-                                </optgroup>
-                            </select>
-                        </td>
+                        <div *ngIf="Depart?.errors?.['required'] && Depart?.touched" class="alert alert-danger">
+                            Ce champ est Obligatoire
+                        </div>
                     </tr>
                     <tr class="tr_style">
                         <td>
@@ -69,6 +54,17 @@
                         </td>
                         <div *ngIf="Reason?.errors?.['required'] && Reason?.touched" class="alert alert-danger">
                             Reason est Obligatoire
+                        </div>
+                    </tr>
+                    <tr class="tr_style">
+                        <td>
+                            <label class="label_style" for="">What do you study ?</label>
+                        </td>
+                        <td>
+                            <textarea class="input_style"  formControlName="education" name="education" id=""></textarea>
+                        </td>
+                        <div *ngIf="Education?.errors?.['required'] && Education?.touched" class="alert alert-danger">
+                            Education est Obligatoire
                         </div>
                     </tr>
                     <tr class="tr_style">
@@ -95,14 +91,14 @@
                     </tr>
                 </table>
                 <div class="application_buttons_container ">
-                    <input type="submit" class="application_button" value="Submit !">
+                    <button class="application_button" (click)="addApplication()" [disabled]="appForm.invalid" >Submit !</button>
                     <button class="application_button">
                         <a routerLink="" class="home_button_style">
                             Go Home
                         </a>
                     </button>
                 </div>
-            </form> -->
+            </form>
         </div>
     </section>
 </div>

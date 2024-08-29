@@ -9,7 +9,9 @@ import { ApplicationService } from 'src/app/Services/application.service';
   styleUrls: ['./applications-admin.component.css']
 })
 export class ApplicationsAdminComponent {
-  candidats!:Application[]
+  filterStatus!:number
+  filtredApplications!:Application[]
+  applications!:Application[]
   headers!:HttpHeaders
   constructor(private aService:ApplicationService){}
   ngOnInit(){
@@ -21,9 +23,21 @@ export class ApplicationsAdminComponent {
     });
 
     this.aService.getApplications(this.headers).subscribe((res=>{
-      this.candidats=res;
-      console.log("candidats",this.candidats);
+      this.applications=res;
+      this.filtredApplications=structuredClone(this.applications)
+      console.log("candidats",this.applications);
       
     }))
+  }
+  filterByStatus(status:number){
+    if (this.filterStatus==status) {
+      this.filterStatus=3
+      this.filtredApplications=this.applications
+    }
+    else{
+      this.filterStatus=status
+      this.filtredApplications=this.applications.filter(elem=>elem.status==status)
+    }
+    
   }
 }

@@ -6,6 +6,8 @@ import { Event } from 'src/app/models/event';
 import { TaskService } from 'src/app/services/Task.service';
 import { PresenceComponent } from '../../pop_ups/presence/presence.component';
 import { HttpHeaders } from '@angular/common/http';
+import { Application } from 'src/app/models/application';
+import { ApplicationService } from 'src/app/Services/application.service';
 
 // import { Application } from 'src/app/models/application';
 // import { Event } from 'src/app/models/event';
@@ -22,9 +24,9 @@ export class DetailsPopupComponent {
   event!:Event;
   task!:Task;
   headers!:HttpHeaders
-  // candidat!:Application;
+  application!:Application;
   // constructor(,,private appService:ApplicationService){}
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public tService:TaskService,public eService:EventService,private dialogRef:MatDialog){}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public tService:TaskService,public eService:EventService,private dialogRef:MatDialog,private appService:ApplicationService){}
   ngOnInit(){
     console.log("data",this.data);
     const token=sessionStorage.getItem('token')
@@ -47,11 +49,11 @@ export class DetailsPopupComponent {
         
       })
     } 
-  //   else {
-  //     this.appService.getApplicationById(this.data.id).subscribe((res)=>{
-  //       this.candidat=res
-  //     })
-  //   }
+    else {
+      this.appService.getApplicationById(this.data.id,this.headers).subscribe((res)=>{
+        this.application=res
+      })
+    }
   }
 
   openPresencePopup(){

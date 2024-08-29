@@ -7,6 +7,8 @@ import { Input } from '@angular/core';
 import { Task } from 'src/app/models/Task';
 import { Event } from 'src/app/models/event';
 import { Application } from 'src/app/models/application';
+import { ApplicationService } from 'src/app/Services/application.service';
+import { HttpHeaders } from '@angular/common/http';
 // import { Application } from 'src/app/models/application';
 
 
@@ -16,16 +18,22 @@ import { Application } from 'src/app/models/application';
   styleUrls: ['./shared-component.component.css']
 })
 export class SharedComponentComponent {
+  headers!:HttpHeaders
   @Input() event!: Event;
   @Input() task!:Task;
-  @Input() candidat!:Application;
+  @Input() app!:Application;
   @Output() delete=new EventEmitter()
   @Output() update=new EventEmitter()
-  constructor(private dialogRef: MatDialog){
+  @Output() updateApplica=new EventEmitter()
+  constructor(private dialogRef: MatDialog,private appService:ApplicationService){
 
   }
   ngOnInit(){
-    
+    const token=sessionStorage.getItem('token')
+    this.headers=new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
     console.log("ee",this.event);
     console.log("tt",this.task);
   }
@@ -58,5 +66,16 @@ export class SharedComponentComponent {
     this.dialogRef.open(DetailsPopupComponent,{
       data:{componentName:name,id:ident}
     });
+  }
+  updateApplication(a:Application,status:number){
+    this.appService.updateStatus(a.id,status,this.headers).subscribe((res)=>{
+      if(res){
+        a.status=status
+      }
+      else{
+        console.log("error");
+        
+      }
+    })
   }
 }

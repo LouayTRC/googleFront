@@ -13,7 +13,7 @@
         <form action="" class="content_component_form">
             <label for="">Note :</label>
             <input type="number" [(ngModel)]="work.note" name="note" class="content_component_input">
-            <button type="submit" (click)="updateNote()" class="content_form_button">Submit</button>
+            <button type="submit" (click)="updateNote()" class="content_form_button" [ngClass]="work.note!=0?'bg-danger':'bg-success'">Submit</button>
         </form>
     </div>
 </div>

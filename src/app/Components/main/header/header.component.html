@@ -7,7 +7,7 @@
     <a class="header_text" href="javascript:void(0);" (click)="scrollToSection('family')">Family</a>
     
     <div *ngIf="!user">
-        <a class="header_text" href="javascript:void(0);" (click)="scrollToSection('apply')">Apply</a>
+        <a class="header_text" routerLink="/apply">Apply</a>
         <Button class="header_button btn btn-danger login" (click)="openLoginPopup();" >Login</Button>
     </div>
 

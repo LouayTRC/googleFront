@@ -8,7 +8,6 @@ import { Application } from 'src/app/models/application';
   styleUrls: ['./shared-component-label.component.css']
 })
 export class SharedComponentLabelComponent {
-  @Input() app!:Application[]
   @Input() page!:String
 
 }

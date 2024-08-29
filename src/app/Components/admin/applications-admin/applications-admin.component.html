@@ -1,11 +1,19 @@
-<div class="pages_content" *ngIf="candidats!=undefined">
-    <div class="button_area">
-        <h1>Applications</h1>
+<div class="pages_content" *ngIf="applications!=undefined">
+    <div class="button_area my-3">
+        <h1 class="text-center text-danger">Applications</h1>
+    </div>
+    <div class="row my-3">
+        <div class="col"></div>
+        <div class="col-3">
+            <button class="btn" (click)="filterByStatus(1)" [ngClass]="filterStatus==1?'btn-success':'btn-dark'">Accepted</button>
+            <button class="btn" (click)="filterByStatus(0)" [ngClass]="filterStatus==0?'btn-primary':'btn-dark'">Waiting</button>
+            <button class="btn" (click)="filterByStatus(-1)" [ngClass]="filterStatus==-1?'btn-danger':'btn-dark'">Refused</button>
+        </div>
     </div>
     <div class="content_area">
-        <app-shared-component-label [app]="candidats" ></app-shared-component-label>
+        <app-shared-component-label page="app" ></app-shared-component-label>
     </div>
     <div class="content_area">
-        <app-shared-component *ngFor="let c of candidats" [candidat]="c"></app-shared-component>
+        <app-shared-component *ngFor="let c of filtredApplications" [app]="c"></app-shared-component>
     </div>
 </div>

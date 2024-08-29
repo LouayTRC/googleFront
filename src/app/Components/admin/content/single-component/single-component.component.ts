@@ -11,6 +11,7 @@ import { Work } from 'src/app/models/work';
   styleUrls: ['./single-component.component.css']
 })
 export class SingleComponentComponent {
+  
   @Input() work!:Work
   headers!:HttpHeaders
   constructor(private wService:WorkService){}
