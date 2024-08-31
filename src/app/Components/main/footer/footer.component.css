@@ -1,6 +1,7 @@
 .contact_footer{
     padding:50px;
     background-image: linear-gradient(30deg,#1a5bbc,#b31412);
+    
 }
 .contacts{
     display:flex;

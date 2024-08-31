@@ -11,7 +11,7 @@
         <Button class="header_button btn btn-danger login" (click)="openLoginPopup();" >Login</Button>
     </div>
 
-    <div *ngIf="user">
+    <div  class="d-flex justify-content-around " *ngIf="user">
         <a routerLink="/admin" class="header_button btn btn-danger login" *ngIf="hasRole('ADMIN')" >Admin</a>
         <a routerLink="/member" class="header_button btn btn-danger login" *ngIf="hasRole('MEMBER')" >Member</a>
         <button class="header_button btn btn-dark login" (click)="logout()" >logout</button>
