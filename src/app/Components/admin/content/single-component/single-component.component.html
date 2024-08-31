@@ -1,7 +1,7 @@
 <div class="content" *ngIf="work!=undefined">
-    <div class="content_img_details" >
+    <div class="content_img_details">
         <img [src]="work.task.pic" alt="" class="content_img">
-        <div class="content_details" >
+        <div class="content_details">
             <h4>Task title : {{work.task.title}}</h4>
             <h5>Member : {{work.member.user.fullname}}</h5>
             <h5>Departement : {{work.task.department.name}}</h5>
@@ -13,9 +13,12 @@
         <form action="" class="content_component_form">
             <label for="">Note :</label>
             <input type="number" [(ngModel)]="work.note" name="note" class="content_component_input">
-            <button type="submit" (click)="updateNote()" class="content_form_button" [ngClass]="work.note!=0?'bg-danger':'bg-success'">Submit</button>
+            <button type="submit" (click)="updateNote()" class="content_form_button"
+                [ngClass]="work.note!=0?'bg-danger':'bg-success'">Submit</button>
         </form>
+        <div class="row" *ngIf="work.updatedBy">
+            <p class="text-danger ">Updated by : {{work.updatedBy.user.fullname}} at {{work.updatedAt | date:'dd-MM-YYYY HH:ss'}}</p>
+        </div>
     </div>
+
 </div>
-
-

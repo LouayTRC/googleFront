@@ -1,6 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { MemberEvent } from 'src/app/models/member-event';
 import { EventService } from 'src/app/Services/event.service';
 
@@ -12,7 +12,7 @@ import { EventService } from 'src/app/Services/event.service';
 export class PresenceComponent {
   membersEvent !:MemberEvent[]
   headers!:HttpHeaders
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private eService:EventService){}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,private eService:EventService,private matDialog:MatDialog){}
 
   ngOnInit(){
     const token=sessionStorage.getItem('token')
@@ -36,5 +36,8 @@ export class PresenceComponent {
       t.updatedAt=res.updatedAt
       t.updatedBy=res.updatedBy
     })
+  }
+  closePopup(){
+    this.matDialog.closeAll()
   }
 }

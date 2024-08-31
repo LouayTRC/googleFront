@@ -7,7 +7,7 @@
                 <input type="radio" [value]="d.name" [(ngModel)]="departfilter"  (click)="filterByDepart(d.name)" name="dep_choice" [id]="d.id">
             </div>
             <div class="search_part">
-                <label for="Both">Both</label>
+                <label for="Both">All</label>
                 <input type="radio" checked (click)="filterByDepart('all')" name="dep_choice" id="">
             </div>
             <div class="">

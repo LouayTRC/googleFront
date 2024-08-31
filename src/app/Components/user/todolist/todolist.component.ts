@@ -28,7 +28,7 @@ export class TodolistComponent {
   taskFilter:string=""
   departfilter:string="all"
   headers!:HttpHeaders
-  constructor(private authService:AuthService,private wSerivce:WorkService,private dService:DepartmentService){}
+  constructor(private authService:AuthService,private wSerivce:WorkService,private router:Router){}
   ngOnInit() {
     const token=sessionStorage.getItem('token')
     this.headers=new HttpHeaders({
@@ -46,16 +46,6 @@ export class TodolistComponent {
       this.works=res
       this.filtredWorks=structuredClone(this.works)
     })
-
-    // this.dservice.getDepartments().subscribe((res) => {
-    //   this.departs = res
-    //   // this.departs2 = res
-    //   console.log("asseee", this.departs);
-    //   this.tservice.getTasks().subscribe((res)=>{
-    //     this.tasks=res
-    //   })
-    // })
-
 
   }
 
@@ -85,5 +75,9 @@ export class TodolistComponent {
       
     }
 
+  }
+
+  goHome(){
+    this.router.navigate(['/member/home'])
   }
 }
