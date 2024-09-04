@@ -1,31 +1,31 @@
-<section class="settings_container" *ngIf="user!=undefined">
-    <div class="settings">
-        <div  class="settings_member">
-            <img [src]="user.pdp" alt="img" class="user-profile">
-            <h2>{{user.fullname}}</h2>
-            <p *ngIf="user.member">Points : {{user.member.score|number:'1.0-2'}}</p>
-        </div>
-        <div  class="form_container">
-            <form class="settings_form" [formGroup]="passwordChange"  method="post">
-                <div class="form_part">
-                    <div class="input_and_label">
-                        <label for="">Old password :</label>
-                        <input type="password" formControlName="oldPwd" name="oldPwd" class="text-dark" placeholder="Type your current password">
-                    </div>
-                </div>
-                <div class="form_part">
-                    <div class="input_and_label">
-                        <label for="">New password :</label>
-                        <input type="password" formControlName="newPwd" name="newPwd" class="text-dark" placeholder="Type a new Password">
-                    </div>
-                    <div class="input_and_label">
-                        <label for="">Confirm password :</label>
-                        <input type="password" formControlName="newPwd2" name="newPwd2"  class="text-dark" placeholder="Confirm that password">
-                    </div>
-                </div>
-                
+<section class="settings_container bg-light" *ngIf="user!=undefined">
+    <div class="card borderStyle mt-5" style="width: 20rem;">
+        <img *ngIf="user.pdp!='test'" [src]="user.pdp" class="card-img-top" alt="...">
+        <img *ngIf="user.pdp=='test'" src="https://s.wsj.net/public/resources/images/RV-AG477_GOOGLE_G_20120330181301.jpg" class="card-img-top minImg" alt="...">
+        <div class="card-body d-flex flex-column align-items-center">
+          <h5 class="card-title">{{user.fullname}}</h5>
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Old password </label>
+              <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="oldPwd" name="oldPwd"  placeholder="Type your current password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">New password </label>
+              <input type="password" class="form-control" id="exampleInputPassword1"formControlName="newPwd" name="newPwd" placeholder="Type a new Password">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">New password </label>
+                <input type="password" class="form-control" id="exampleInputPassword1" formControlName="newPwd2" name="newPwd2" placeholder="Confirm that password">
+            </div>
+            <div class="d-flex justify-content-center mt-3">
                 <button type="submit" (click)="changePassword()" [disabled]="checkFields()" class="btn btn-danger">Change Password</button>
+            </div>
             </form>
         </div>
-    </div>
+      </div>
+    
 </section>
+
+
+
+  

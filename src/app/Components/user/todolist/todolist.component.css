@@ -1,72 +1,79 @@
-.assignment_title{
-    display:flex;
-    justify-content:center;
-    margin-top:50px;
-    font-size:60px;
+.marginT{
+    margin-top: 10.5vh;
 }
-.g-assignment {
-    display: grid;
-    grid-template-columns: repeat(6,1fr);
-    grid-template-areas: "aside as as as as as";
+.bg-google{
+    background-image: url("https://wallpapers.com/images/hd/google-background-kd1prf7szhbx3ezp.jpg");
+    background-color: #cccccc;
+   background-size: cover;
+   background-repeat: no-repeat;
 }
-.categ {
-    margin-top: 120px;
-    grid-area: aside;
-    box-shadow: 0px 0px 20px 2px rgba(0, 0, 0, 0.278);
-    height: 500px;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-    background-color: white;
-    border-top: 2px solid var(--mainRed);
-    border-bottom:  2px solid var(--mainYellow) ;
-    border-left: 2px solid var(--mainGreen);
-    border-right: 2px solid var(--mainBlue);
-    margin-left: 20px;
-    width:105%
+
+.categ{
+    border-radius: 10px;
 }
-.as {
-    grid-area: as;
-    height: 500px;
+
+.maxH{  
+    max-height: 87vh;
+    min-height: 87vh;
+    
 }
-.checks {
-    font-size: 20px;
+
+.navR{
+    overflow-x: hidden;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+/*radio buttons*/
+
+ /* From Uiverse.io by Pradeepsaranbishnoi */ 
+
+  
+  .container label {
+    display: flex;
+    cursor: pointer;
     font-weight: 500;
-    margin-top: 50px;
-}
-.search {
-    width:220px;
-    height:40px;
-    border-radius:8px ;
-    -webkit-border-radius:8px ;
-    -moz-border-radius:8px ;
-    -ms-border-radius:8px ;
-    -o-border-radius:8px ;
-    border:none;
-    opacity: 1;
-    background-color: #1616163e;
-    transition: 0.2s;
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -ms-transition: 0.2s;
-    -o-transition: 0.2s;
-}
-@media screen and (max-width:1024px) {
-    .assignment_title{
-        margin-top:-100px;
-    }
-    .g-assignment {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .categ {
-        width:auto;
-        padding:15px;
-    }
-}
-#container{
-    margin-bottom: 25%;
-}
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.375em;
+  }
+  
+  .container  label input {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  .container label input:checked + span {
+    background-color: #414181;
+    color: white;
+  }
+  
+  .container label input:checked + span:before {
+    box-shadow: inset 0 0 0 0.4375em #00005c;
+  }
+  
+  .container label span {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em 0.375em 0.375em;
+    border-radius: 99em;
+    transition: 0.25s ease;
+    color: #414181;
+  }
+  
+  .container label span:hover {
+    background-color: #d6d6e5;
+  }
+  
+  .container label span:before {
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: 0.375em;
+    transition: 0.25s ease;
+    box-shadow: inset 0 0 0 0.125em #00005c;
+  }
+  

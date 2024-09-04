@@ -28,6 +28,8 @@ export class SettingsComponent {
 
     this.authService.user.subscribe((res)=>{
       this.user=res
+      console.log(this.user);
+      
     })
     this.passwordChange=this.fb.nonNullable.group({
       oldPwd:'',

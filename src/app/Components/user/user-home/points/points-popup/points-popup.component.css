@@ -1,19 +1,16 @@
 .points_popup{
     min-width:300px;
+    max-width:auto; 
     max-width:auto;
-    min-height:400px;
-    max-width:auto;
-    padding:10px;
     background-color:#E8E8E8;
 }
 .points_table{
     width:100%;
 }
 .thead_style,tr{
-    background-image: linear-gradient(20deg,#fbbc04,#ea8600);
-    border-radius:5px;
+
     width:100%;
-    padding:10px 0 10px 0;
+    padding:15px;
 }
 .tbody_style tr{
     border-top:2px solid black;
@@ -25,4 +22,10 @@
 .close_icon{
     margin-top: 2px;
     margin-right: 20px;
+}
+
+.bg{
+    background-image: url(https://wallpapercave.com/wp/wp7088566.png);
+    background-repeat: repeat;
+    background-size: cover;
 }

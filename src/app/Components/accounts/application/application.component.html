@@ -1,11 +1,195 @@
-<div class="applicationpage_container" >
+<!--premier form-->
+<div class="bg d-flex justify-content-center">
+    <form [formGroup]="appForm">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-6 h-25 mt-4">
+                <img class="w-100 rounded-3 heightImg " src="data:image/png;base64,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" alt="">    
+
+            </div>        
+        </div>
+        <div class="row mt-3 d-flex justify-content-center">
+            <div class="col-12 col-lg-6 ">
+                <div class="borderTop  rounded bg-light ">
+                    <div class="p-4 pb-0 ">
+                        <h2>Recruitment iset.ch google club</h2>
+                        <p>Google Club ISETCH is a club that offers Hard and Soft skills training for students in the field of computer technology and organizes challenges, training and programming projects for students.</p>
+                        <p>Mail : contact.isetchggl@gmail.com</p>
+                        <small>Link Facebook : <a href="https://www.facebook.com/isetch.google.club">https://www.facebook.com/isetch.google.club</a></small> <br>
+                        <small>Link Instagram : <a href="https://www.instagram.com/isetch_google_club/">https://www.instagram.com/isetch_google_club/</a></small>
+                    </div>
+                    <hr>
+                    <div class="px-4 pb-2 "> 
+                        <small class="text-danger">* Indique une question obligatoire</small>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="row   d-flex justify-content-center">
+            <div class="col-12 col-lg-6 ">
+                <div class="rounded bg-light mt-3 p-3" [ngClass]="{active: Fullname?.errors?.['required'] && Fullname?.touched}">
+                    <h5>Full Name<span class="text-danger">*</span> </h5>
+                    <input type="email" class="form-control" type="text" placeholder="Type your name" formControlName="fullname" name="fullname">
+                    <div  *ngIf="Fullname?.errors?.['required'] && Fullname?.touched" class=" mt-3 text-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                        </svg>
+                        <small class="mx-2">Fullname est Obligatoire</small>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="row   d-flex justify-content-center">
+            <div class="col-12 col-lg-6 ">
+                <div class=" rounded bg-light mt-3 p-3" [ngClass]="{active: (Mail?.errors?.['email'] && Mail?.touched)|| (Mail?.errors?.['required'] && Mail?.touched)}">
+                    <h5>Email<span class="text-danger">*</span> </h5>
+                    <input type="email" class="form-control"  placeholder="Type your email" formControlName="mail" name="mail">
+                    <div  *ngIf="Mail?.errors?.['required'] && Mail?.touched" class=" mt-3 text-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                        </svg>
+                        <small class="mx-2">Mail est Obligatoire</small>
+                    </div>
+                    <div  *ngIf="Mail?.errors?.['email'] && Mail?.touched" class=" mt-3 text-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                        </svg>
+                        <small class="mx-2">ce n'est pas un Mail</small>
+                    </div>
+                </div>
+                
+            </div>        
+        </div>
+
+        <div class="row   d-flex justify-content-center">
+            <div class="col-12 col-lg-6 ">
+                <div class="rounded bg-light mt-3 p-3" [ngClass]="{active: Depart?.errors?.['required'] && Depart?.touched}">
+                    <h5>What departments do you want to join ? (Dev/Media/Rh)<span class="text-danger">*</span> </h5>
+                    <textarea type="email" class="form-control"  placeholder="Type here" formControlName="depart" name="depart"></textarea>
+                    <div  *ngIf="Depart?.errors?.['required'] && Depart?.touched" class=" mt-3 text-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                        </svg>
+                        <small class="mx-2">Ce champs est obligatoire</small>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="row   d-flex justify-content-center">
+            <div class="col-12 col-lg-6 ">
+                <div class="rounded bg-light mt-3 p-3" [ngClass]="{active: Reason?.errors?.['required'] && Reason?.touched}">
+                    <h5>Why do you want to join Google Club<span class="text-danger">*</span> </h5>
+                    <textarea type="email" class="form-control"  placeholder="Type here" formControlName="reason" name="reason"></textarea>
+                    <div  *ngIf="Reason?.errors?.['required'] && Reason?.touched" class=" mt-3 text-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                        </svg>
+                        <small class="mx-2">Ce champs est obligatoire</small>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="row   d-flex justify-content-center">
+            <div class="col-12 col-lg-6 ">
+                <div class="rounded bg-light mt-3 p-3" [ngClass]="{active: Education?.errors?.['required'] && Education?.touched}">
+                    <h5>What do you study ?<span class="text-danger">*</span> </h5>
+                    <textarea type="email" class="form-control"  placeholder="Type here"  formControlName="education" name="education"></textarea>
+                    <div  *ngIf="Education?.errors?.['required'] && Education?.touched" class=" mt-3 text-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                        </svg>
+                        <small class="mx-2">Ce champs est obligatoire</small>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-6">
+              <div class="rounded bg-light mt-3 p-3" [ngClass]="{active: Skills?.errors?.['required'] && Skills?.touched}">
+                <h5>What are your skills?<span class="text-danger">*</span></h5>
+                <input class="form-control" formControlName="skills" name="skills" type="text" placeholder="Type your skills">
+                <div *ngIf="Skills?.errors?.['required'] && Skills?.touched" class="mt-3 text-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                  </svg>
+                  <small class="mx-2">Skills est Obligatoire</small>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="row d-flex justify-content-center">
+            <div class="col-12 col-lg-6">
+              <div class="rounded bg-light mt-3 p-3" [ngClass]="{active: Exp?.errors?.['required'] && Exp?.touched}">
+                <h5>Have you been part of a club or a community before?<span class="text-danger">*</span></h5>
+                <input class="form-control" type="text" formControlName="clubsExperience" name="clubsExperience" placeholder="Type your experience">
+                <div *ngIf="Exp?.errors?.['required'] && Exp?.touched" class="mt-3 text-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                  </svg>
+                  <small class="mx-2">Si vous n'avez pas d'expérience, écrivez RIEN</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center mt-3">
+            <div class="col-12 col-lg-6 ">
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <button class="btn btn-secondary px-4" (click)="addApplication()" [disabled]="appForm.invalid" >Envoyer</button>
+                    <a routerLink="" class="text-danger">
+                            Go Home
+                    </a>
+                </div>
+            </div>
+          </div>
+
+          <div class="row d-flex justify-content-center mt-3">
+            <div class="col-12 col-lg-6 text-secondary">
+                <small>N'envoyez jamais de mots de passe via Google . </small>
+            </div>
+          </div>
+          
+          <div class="row d-flex justify-content-center mt-3">
+            <div class="col-12 col-lg-6 text-secondary  d-flex justify-content-center">
+                <img class="w-50" src="https://media.discordapp.net/attachments/1021180611567824947/1021180664189562890/Asset_6.png?ex=66d6dfda&is=66d58e5a&hm=b7246e60d51ec232ab1465ec0af8c690572369f22d7025e149c0d7a00400cbe8&=&format=webp&quality=lossless&width=1440&height=293" alt="">
+                
+            </div>
+          </div>
+    </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+<!--deuxieme form-->
+
+<!--<div class="applicationpage_container" >
     <header class="application_header">
         <img src="../../../assets/images/Untitled__2_-removebg-preview.png" alt="">
         <h4>Isetch Google Club Membership Application</h4>
     </header>
     <section class="application_section">
         <div class="application_container">
-            <h4>Application From</h4>
+            <h4>Application Fromaa</h4>
             <p>Make sure to answer all the questions and to provide your personal email.</p>
             <form [formGroup]="appForm"  style="height:100%;">
                 <table style="height:100%;">
@@ -45,6 +229,7 @@
                             Ce champ est Obligatoire
                         </div>
                     </tr>
+
                     <tr class="tr_style">
                         <td>
                             <label class="label_style" for="">why do you want to join Google Club</label>
@@ -56,6 +241,8 @@
                             Reason est Obligatoire
                         </div>
                     </tr>
+                                                                ----------------------------------------------------------------
+
                     <tr class="tr_style">
                         <td>
                             <label class="label_style" for="">What do you study ?</label>
@@ -101,4 +288,4 @@
             </form>
         </div>
     </section>
-</div>
+</div>-->
