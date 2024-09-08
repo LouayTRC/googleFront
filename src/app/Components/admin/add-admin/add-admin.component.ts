@@ -30,6 +30,7 @@ export class AddAdminComponent {
       fullname:["",Validators.required],
       mail:["",Validators.required,Validators.email],
       password:["",Validators.required],
+      pdp:[""],
       roles:[]
     })
 
@@ -51,6 +52,7 @@ export class AddAdminComponent {
   }
 
   addAdmin() {
+    this.adminForm.value.pdp="https://s.wsj.net/public/resources/images/RV-AG477_GOOGLE_G_20120330181301.jpg"
     this.adminForm.value.roles=this.selectedRoles
     this.authService.addAdmin(this.adminForm.value,this.headers).subscribe((res)=>{
       console.log("res",res);

@@ -24,6 +24,6 @@ export class MonthScoreService {
   }
 
   updateMonthScore(id:number,ms:MonthScore,headers?:HttpHeaders):Observable<MonthScore>{
-    return this.http.put<MonthScore>(this.baseUrl+"/"+id,ms,{ headers: headers })
+    return this.http.patch<MonthScore>(this.baseUrl+"/"+id,{ contribution: ms.contribution, discipline: ms.discipline },{ headers: headers })
   }
 }

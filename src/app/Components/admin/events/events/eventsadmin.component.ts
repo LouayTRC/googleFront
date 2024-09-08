@@ -57,7 +57,7 @@ export class EventsadminComponent {
   }
   filterByName(){
     if (this.titleFilter!="") {
-      this.filtredEvents=this.events.filter(elem=>elem.title.toUpperCase().includes(this.titleFilter))
+      this.filtredEvents=this.events.filter(elem=>elem.title.toUpperCase().includes(this.titleFilter.toUpperCase()))
     } else {
       this.filtredEvents=this.events
     }

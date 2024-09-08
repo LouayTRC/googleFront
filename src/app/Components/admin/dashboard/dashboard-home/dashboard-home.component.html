@@ -28,7 +28,7 @@
         <h2 class="text-center ">Users</h2>
     </div>
     <div class="row mb-2 mx-2 ">
-        <button class="btn btn-primary col-lg-1 col-md-2 col-sm-3  " (click)="openAddAdmin()">Add admin</button>
+        <button class="btn btn-primary col-lg-1 col-md-2 col-sm-3  " [disabled]="!hasRole('SUPER ADMIN')" (click)="openAddAdmin()">Add admin</button>
     </div>
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center" *ngFor="let u of users">

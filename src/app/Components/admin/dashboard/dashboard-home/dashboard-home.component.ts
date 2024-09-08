@@ -7,6 +7,7 @@ import { UserService } from 'src/app/Services/user.service';
 import { HttpHeaders } from '@angular/common/http';
 import { AddAdminComponent } from '../../add-admin/add-admin.component';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-dashboard-home',
@@ -16,9 +17,10 @@ import { User } from 'src/app/models/user';
 export class DashboardHomeComponent {
   // departs!:Departement[]
   users!:User[]
+  user!:User
   headers!:HttpHeaders
   // constructor(private dialogRef: MatDialog,private dService:DepartService,private aService:AdminService){}
-  constructor(private uService:UserService,private dialogRef:MatDialog){}
+  constructor(private uService:UserService,private dialogRef:MatDialog,private authService:AuthService){}
   ngOnInit(){
   //   this.dService.getAllDeparts().subscribe((res)=>{
   //     this.departs=res;
@@ -29,6 +31,9 @@ export class DashboardHomeComponent {
       'Authorization': `Bearer ${token}`
     });
 
+    this.authService.user.subscribe((res)=>{
+      this.user=res
+    })
     this.uService.getAllUsers(this.headers).subscribe((res)=>{
       this.users=res
       console.log("admins",this.users);
@@ -53,5 +58,8 @@ export class DashboardHomeComponent {
 
   openAddAdmin() {
     this.dialogRef.open(AddAdminComponent)
+  }
+  public hasRole(roleName: String): boolean {
+    return this.user.roles.some(role => role.name === roleName);
   }
 }

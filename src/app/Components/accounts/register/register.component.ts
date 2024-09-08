@@ -72,7 +72,7 @@ export class RegisterComponent {
       this.registerForm.value.pdp = await this.uploadPic(this.file);
     }
     else {
-      this.registerForm.value.pdp = "assets/images/new.png"
+      this.registerForm.value.pdp = "https://s.wsj.net/public/resources/images/RV-AG477_GOOGLE_G_20120330181301.jpg"
     }
     this.registerForm.value.departments = this.selectedDeparts
     console.log("register form", this.registerForm.value);

@@ -37,7 +37,7 @@ export class ApplicationComponent {
     get Depart(){
       return this.appForm.controls['depart']
     }
-      get Fullname(){
+    get Fullname(){
       return this.appForm.controls['fullname']
     }
     get Mail(){

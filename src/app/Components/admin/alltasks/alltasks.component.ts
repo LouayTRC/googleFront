@@ -59,11 +59,9 @@ export class AlltasksComponent {
     //   }
   }
   filterByName(){
+    this.filtredTasks=this.tasks
     if (this.titleFilter!="") {
-      this.filtredTasks=this.tasks.filter(elem=>elem.title.toUpperCase().includes(this.titleFilter))
-    } else {
-      this.filtredTasks=this.tasks
+      this.filtredTasks=this.filtredTasks.filter(elem=>elem.title.toUpperCase().includes(this.titleFilter.toUpperCase()))
     }
-    
   }
 }

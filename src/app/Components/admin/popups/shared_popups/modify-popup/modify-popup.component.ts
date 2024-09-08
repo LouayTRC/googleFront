@@ -60,7 +60,9 @@ export class ModifyPopupComponent {
   }
   async updateEvent(){
 
-    if(this.file && this.data.ComponentName == "events"){
+    if(this.file){
+      console.log("ddd");
+      
       this.event.pic=await this.uploadPic(this.file)
     }
       this.eService.updateEvent(this.event,this.headers).subscribe((res)=>{
@@ -70,7 +72,7 @@ export class ModifyPopupComponent {
     
   }
   async updateTask(){
-    if(this.file && this.data.ComponentName == "tasks"){
+    if(this.file && this.data.componentName == "tasks"){
           this.task.pic=await this.uploadPic(this.file)
     }
     this.tService.updateTask(this.task,this.headers).subscribe((res)=>{
@@ -85,7 +87,9 @@ export class ModifyPopupComponent {
   }
   async uploadPic(f: File) {
     let path;
-    if(this.data.ComponentName == "events"){
+    console.log(this.data.componentName);
+    
+    if(this.data.componentName == "events"){
       path = `events/${this.file.name}`
     }
     else{

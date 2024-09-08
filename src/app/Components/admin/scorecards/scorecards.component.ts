@@ -42,6 +42,20 @@ export class ScorecardsComponent {
       width:'30%' ,
       height:'50%',
       panelClass:'centered-popup'
+    }).afterClosed().subscribe((res)=>{
+      console.log("saye");
+      if (res!=null) {
+        
+        console.log("saye2");
+        for(let elem of this.filtredScoreCards){
+          console.log("saye3",elem);
+          if(elem.score_id==res.score_id){
+            console.log("elem",elem.score_id);
+            
+            elem=res
+          }
+        }
+      }
     })
   }
 

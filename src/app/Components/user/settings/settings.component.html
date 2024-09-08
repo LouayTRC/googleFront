@@ -1,7 +1,6 @@
 <section class="settings_container bg-light" *ngIf="user!=undefined">
     <div class="card borderStyle mt-5" style="width: 20rem;">
-        <img *ngIf="user.pdp!='test'" [src]="user.pdp" class="card-img-top" alt="...">
-        <img *ngIf="user.pdp=='test'" src="https://s.wsj.net/public/resources/images/RV-AG477_GOOGLE_G_20120330181301.jpg" class="card-img-top minImg" alt="...">
+        <img [src]="user.pdp" class="card-img-top" alt="...">
         <div class="card-body d-flex flex-column align-items-center">
           <h5 class="card-title">{{user.fullname}}</h5>
           <form>

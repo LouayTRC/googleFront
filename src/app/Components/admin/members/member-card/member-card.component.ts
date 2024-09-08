@@ -48,6 +48,6 @@ export class MemberCardComponent {
   }
   public hasRole(roleName: String): boolean {
     return this.user.roles.some(role => role.name === roleName);
-}
+  }
 
 }

@@ -35,12 +35,13 @@ export class ScorecardPopupComponent {
     
   }
   
-  updateMs(ms:MonthScore){
-    this.mSService.updateMonthScore(ms.score_id,ms,this.headers).subscribe((res)=>{
-      
-    })
-  }
+    updateMs(ms:MonthScore){
+      this.mSService.updateMonthScore(ms.score_id,ms,this.headers).subscribe((res)=>{
+        console.log("ipda",res);
+        this.matDialog.close(res)
+      })
+    }
   closePopup(){
-    this.matDialog.close()
+    this.matDialog.close(null)
   }
 }
