@@ -75,9 +75,14 @@ export class ModifyPopupComponent {
     if(this.file && this.data.componentName == "tasks"){
           this.task.pic=await this.uploadPic(this.file)
     }
-    this.tService.updateTask(this.task,this.headers).subscribe((res)=>{
+   let tmpTask:any={...this.task}
+   delete tmpTask.department
+   delete tmpTask.works
+
+    this.tService.updateTask(tmpTask,this.headers).subscribe((res)=>{
       console.log("task updated",res);
       this.dialodRef.close(res);
+      
     })
     
   }

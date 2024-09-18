@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:8888/api',
+    apiUrl: 'https://googlebackend-3vjv.onrender.com/api',
     firebaseConfig : {
         apiKey: "AIzaSyBnyZW1tK7bpwVllIHMb17Z-swkJ_7zjPY",
         authDomain: "clubwebsite-9d189.firebaseapp.com",

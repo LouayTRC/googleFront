@@ -53,7 +53,7 @@ export class ContentComponent {
       this.filtredWorks=this.filtredWorks.filter(elem=>elem.member.user.fullname.toUpperCase().includes(this.memberFilter.toUpperCase()))
     }
     if (aa!="all") {
-      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department.name==aa)
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department?.name==aa)
     }
     else{
       this.departfilter='all'
@@ -64,7 +64,7 @@ export class ContentComponent {
   filterByMember(){
     this.filtredWorks=this.works
     if(this.departfilter!="all"){
-      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department.name==this.departfilter)
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department?.name==this.departfilter)
 
     }
     if (this.memberFilter!="") {

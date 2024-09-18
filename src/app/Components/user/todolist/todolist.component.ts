@@ -56,7 +56,7 @@ export class TodolistComponent {
       this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.title.toUpperCase().includes(this.taskFilter.toUpperCase()))
     }
     if (aa!="all") {
-      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department.name==aa)
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department?.name==aa)
     }
     else{
       this.departfilter='all'
@@ -67,7 +67,7 @@ export class TodolistComponent {
   filterByTask(){
     this.filtredWorks=this.works
     if(this.departfilter!="all"){
-      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department.name==this.departfilter)
+      this.filtredWorks=this.filtredWorks.filter(elem=>elem.task.department?.name==this.departfilter)
 
     }
     if (this.taskFilter!="") {

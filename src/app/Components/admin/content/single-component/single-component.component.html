@@ -4,7 +4,7 @@
         <div class="content_details">
             <h4>Task title : {{work.task.title}}</h4>
             <h5>Member : {{work.member.user.fullname}}</h5>
-            <h5>Departement : {{work.task.department.name}}</h5>
+            <h5>Departement : {{work.task.department?.name}}</h5>
             <h5>date Depo : {{work.dateDepo| date:'dd-MMMM-YYYY'}}</h5>
             <h5>Url work : <span class="text-danger">{{work.url}}</span></h5>
         </div>
