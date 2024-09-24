@@ -58,6 +58,9 @@ import { PasswordPopupComponent } from './Components/admin/popups/pop_ups/passwo
 import { AddAdminComponent } from './Components/admin/add-admin/add-admin.component';
 import { ScorecardsComponent } from './Components/admin/scorecards/scorecards.component';
 import { ScorecardPopupComponent } from './Components/admin/popups/pop_ups/scorecard-popup/scorecard-popup.component';
+import { environment } from 'src/environment';
+import { AngularFireModule } from '@angular/fire/compat'
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'
 
 @NgModule({
   declarations: [
@@ -109,7 +112,8 @@ import { ScorecardPopupComponent } from './Components/admin/popups/pop_ups/score
     PasswordPopupComponent,
     AddAdminComponent,
     ScorecardsComponent,
-    ScorecardPopupComponent
+    ScorecardPopupComponent,
+    PasswordPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -122,7 +126,9 @@ import { ScorecardPopupComponent } from './Components/admin/popups/pop_ups/score
     MatToolbarModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

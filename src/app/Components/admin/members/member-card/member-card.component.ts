@@ -3,6 +3,7 @@ import { EventEmitter, Input, Output } from '@angular/core';
 import { Component } from '@angular/core';
 import { Admin } from 'src/app/models/admin';
 import { Member } from 'src/app/models/member';
+import { Role } from 'src/app/models/role';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/Services/user.service';
 @Component({
@@ -12,6 +13,7 @@ import { UserService } from 'src/app/Services/user.service';
 })
 export class MemberCardComponent {
   @Input() user!: User;
+
   headers!:HttpHeaders
   constructor(private uService:UserService){}
 
@@ -21,6 +23,7 @@ export class MemberCardComponent {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     });
+
   }
   deleteMember(id:number){
   //   this.mservice.deleteMember(id).subscribe(()=>{
@@ -41,4 +44,8 @@ export class MemberCardComponent {
   getRoles(){
     return this.user.roles.map(role => role.name).join(', ')
   }
+  public hasRole(roleName: String): boolean {
+    return this.user.roles.some(role => role.name === roleName);
+}
+
 }

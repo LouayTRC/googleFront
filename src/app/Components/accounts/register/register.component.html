@@ -46,7 +46,7 @@
                 
                 <div>
                     <label for="fileInput">PDP: </label><br>
-                    <input type="file" id="fileInput" (change)="fileChange($event)">
+                    <input type="file" id="fileInput" (change)="onFileChange($event)">
                     <p *ngIf="file">{{file.size|fileSizePipe}}</p>
                 </div><br>
                 

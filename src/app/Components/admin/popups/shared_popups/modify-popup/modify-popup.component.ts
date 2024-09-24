@@ -1,5 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { every } from 'rxjs';
 import { DepartmentService } from 'src/app/Services/department.service';
@@ -25,11 +27,11 @@ import { TaskService } from 'src/app/services/Task.service';
 export class ModifyPopupComponent {
   event!:Event;
   task!:Task;
-  // file!:File
+  file!:File
   departs!:Department[]
   headers!: HttpHeaders;
   // constructor(,private fireStorage:AngularFireStorage){}
-  constructor(private tService:TaskService,@Inject(MAT_DIALOG_DATA) public data: any,private dialodRef:MatDialogRef<ModifyPopupComponent>,private dService:DepartmentService,private eService:EventService){}
+  constructor(private tService:TaskService,@Inject(MAT_DIALOG_DATA) public data: any,private dialodRef:MatDialogRef<ModifyPopupComponent>,private dService:DepartmentService,private eService:EventService,private fireStorage:AngularFireStorage){}
   ngOnInit(){
 
     const token=sessionStorage.getItem('token')
@@ -56,42 +58,43 @@ export class ModifyPopupComponent {
     })
     
   }
-  updateEvent(){
-    // if(this.file){
-    //   const path = `events/${this.file.name}`
-    //   this.fireStorage.upload(path,this.file).then(data => {
-    //     const uploadUser = data;
-    //     uploadUser.ref.getDownloadURL().then(data2 => {
-    //       this.event.pic=data2
+  async updateEvent(){
+
+    if(this.file && this.data.ComponentName == "events"){
+      this.event.pic=await this.uploadPic(this.file)
+    }
       this.eService.updateEvent(this.event,this.headers).subscribe((res)=>{
             console.log("event updated",res);
             this.dialodRef.close(res);
-          })
-    //     });
-    //   });
-      
-    // }
+      })
     
   }
-  updateTask(){
-    // if(this.file){
-    //   const path = `tasks/${this.file.name}`
-    //   this.fireStorage.upload(path,this.file).then(data => {
-    //     const uploadUser = data;
-    //     uploadUser.ref.getDownloadURL().then(data2 => {
-    //       this.task.pic=data2
-          this.tService.updateTask(this.task,this.headers).subscribe((res)=>{
-            console.log("task updated",res);
-            this.dialodRef.close(res);
-          })
-    //     });
-    //   });
-      
-    // }
+  async updateTask(){
+    if(this.file && this.data.ComponentName == "tasks"){
+          this.task.pic=await this.uploadPic(this.file)
+    }
+    this.tService.updateTask(this.task,this.headers).subscribe((res)=>{
+      console.log("task updated",res);
+      this.dialodRef.close(res);
+    })
     
   }
-  fileChange(event: any) {
-    // this.file = event.target.files[0];
+  onFileChange(event: any) {
+    this.file = event.target.files[0];
+    console.log("dd", this.file);
+  }
+  async uploadPic(f: File) {
+    let path;
+    if(this.data.ComponentName == "events"){
+      path = `events/${this.file.name}`
+    }
+    else{
+      path = `tasks/${this.file.name}`
+    }
+    
+    const upload = await this.fireStorage.upload(path, this.file)
+    const url = await upload.ref.getDownloadURL()
+    return url;
   }
 
   findDepartment(id:number){

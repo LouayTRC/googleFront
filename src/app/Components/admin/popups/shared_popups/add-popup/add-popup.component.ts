@@ -1,5 +1,6 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 // import { AngularFireModule } from '@angular/fire/compat';
 // import { AngularFireStorage, AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -25,10 +26,8 @@ export class AddPopupComponent {
   departs!: Department[];
   eventDeps: Department[] = []
   headers!:HttpHeaders
-  // url: string = ""
-  // file!:File
-  // constructor(, , ,,private fireStorage:AngularFireStorage) { }
-  constructor(private dialogRef: MatDialogRef<AddPopupComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private dService: DepartmentService, private formBuilder: FormBuilder, private tservice: TaskService, private eservice: EventService) { }
+  file!:File
+  constructor(private dialogRef: MatDialogRef<AddPopupComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private dService: DepartmentService, private formBuilder: FormBuilder, private tservice: TaskService, private eservice: EventService,private fireStorage:AngularFireStorage) { }
   ngOnInit() {
 
     const token=sessionStorage.getItem('token')
@@ -47,7 +46,8 @@ export class AddPopupComponent {
         title: ["", Validators.required],
         dateEvent: ["", Validators.required],
         place: ["", Validators.required],
-        description: ["", Validators.required]
+        description: ["", Validators.required],
+        pic:"assets/images/logo.png"
       })
       console.log("event", this.newEvent.value);
     }
@@ -56,7 +56,8 @@ export class AddPopupComponent {
         title: ["", Validators.required],
         ddl: ["", Validators.required],
         department: ["", Validators.required],
-        description: ["", Validators.required]
+        description: ["", Validators.required],
+        pic:"assets/images/logo.png"
       })
       console.log("task", this.newTask.value);
     }
@@ -105,13 +106,10 @@ export class AddPopupComponent {
     // }
   }
 
-  addTask() {
-    //   if (this.file) {
-    //     const path = `tasks/${this.file.name}`
-    //     this.fireStorage.upload(path,this.file).then(data => {
-    //       const uploadUser = data;
-    //       uploadUser.ref.getDownloadURL().then(data2 => {
-    //         this.newTask.value.pic=data2
+  async addTask() {
+      if (this.file && this.data.ComponentName == "tasks") {
+        this.newTask.value.pic=await this.uploadPic(this.file)
+      }
     console.log("deop", this.newTask.value.department);
     this.newTask.value.department = this.findDepartment(this.newTask.value.department)
     this.tservice.addTask(this.newTask.value,this.headers).subscribe((res) => {
@@ -123,14 +121,28 @@ export class AddPopupComponent {
     //   }
     //   else{
     //     alert('choisissez une photo')
-    //   }
+      
   }
 
 
-  fileChange(event: any) {
-    // this.file = event.target.files[0];
+  onFileChange(event: any) {
+    this.file = event.target.files[0];
+    console.log("dd", this.file);
   }
-
+  async uploadPic(f: File) {
+    let path;
+    if(this.data.ComponentName == "events"){
+      path = `events/${this.file.name}`
+    }
+    else{
+      path = `tasks/${this.file.name}`
+    }
+    
+    const upload = await this.fireStorage.upload(path, this.file)
+    const url = await upload.ref.getDownloadURL()
+    return url;
+  }
+  
   findDepartment(id: number) {
     for (let dep of this.departs) {
       if (dep.id == id) {

@@ -3,6 +3,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Component,Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AuthService } from 'src/app/Services/auth.service';
 
 @Component({
   selector: 'app-password-popup',
@@ -12,7 +13,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class PasswordPopupComponent {
   passwordChange!:FormGroup
   headers!:HttpHeaders
-  constructor(private fb:FormBuilder,private matDialog:DialogRef){}
+  constructor(private fb:FormBuilder,private matDialog:DialogRef,private authService:AuthService){}
   ngOnInit(){
     const token=sessionStorage.getItem('token')
     this.headers=new HttpHeaders({
@@ -20,18 +21,25 @@ export class PasswordPopupComponent {
       'Authorization': `Bearer ${token}`
     });
     this.passwordChange=this.fb.nonNullable.group({
-      pwd:'',
-      newPwd:''
+      oldPwd:'',
+      newPwd:'',
+      newPwd2:''
     })
   }
   updateAdmin(){
-    // if (this.passwordChange.value.pwd==this.data.admin.password) {
-    //   this.data.admin.password=this.passwordChange.value.newPwd;
-    //   this.aservice.updateAdmin(this.data.admin).subscribe((res)=>{
-    //     this.matDialog.close();
-        
-    //   })
+    console.log("dd",this.passwordChange.value);
+    
+    if (this.passwordChange.value.newPwd==this.passwordChange.value.newPwd2) {
+      this.authService.changePassword(this.passwordChange.value.oldPwd,this.passwordChange.value.newPwd,this.headers).subscribe((res)=>{
+        console.log("res",res);
+        this.matDialog.close()
+      })
       
-    // }
+    }
+    else{
+      console.log("confirmation doesn't match reality");
+      
+    }
+    
   }
 }

@@ -30,6 +30,11 @@ export class AuthService {
     return this.http.post<any>(this.baseUrl+"/verify/"+token,null);
   }
 
+  changePassword(old:String,newPwd:String,headers?: HttpHeaders):Observable<any>{
+    return this.http.patch<any>(this.baseUrl+"/change",{ oldPwd: old, newPwd: newPwd }, { headers: headers });
+
+  }
+
   logout(){
     this.setUser(undefined);
     sessionStorage.removeItem("token");
